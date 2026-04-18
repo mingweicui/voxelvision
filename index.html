@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxelVision — Spatial Medical Image Viewer for Apple Vision Pro</title>
+    <meta name="description" content="A native DICOM viewer for visionOS. Import CT, MR, PET, and NM data and explore medical imaging volumes in spatial computing.">
+    <meta property="og:title" content="VoxelVision — Medical imaging, reimagined in 3D space.">
+    <meta property="og:description" content="A native DICOM viewer for Apple Vision Pro. Navigate anatomy with natural hand gestures. CT, MR, PET, and NM supported.">
+    <meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
+    <meta property="og:url" content="https://mingweicui.github.io/voxelvision/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #555;
+            --light: #888;
+            --border: #e0e0e0;
+            --accent: #2979ff;
+            --card-bg: #fff;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111;
+                --fg: #f0f0f0;
+                --muted: #bbb;
+                --light: #888;
+                --border: #2a2a2a;
+                --accent: #4da3ff;
+                --card-bg: #1a1a1a;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero {
+            background: linear-gradient(135deg, #2979ff 0%, #1a237e 100%);
+            color: #fff;
+            text-align: center;
+            padding: 72px 20px 56px;
+        }
+        .hero-icon {
+            width: 112px; height: 112px;
+            border-radius: 26px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
+        .hero .tagline { font-size: 19px; opacity: 0.92; margin-bottom: 28px; font-weight: 300; }
+        .app-store-badge { display: inline-block; transition: opacity 0.2s; }
+        .app-store-badge:hover { opacity: 0.85; }
+        .app-store-badge img { height: 50px; }
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 60px 0; }
+        section + section { border-top: 1px solid var(--border); }
+        .shift p {
+            font-size: 16px; color: var(--muted);
+            max-width: 720px; margin: 0 auto 18px; text-align: center;
+        }
+        .shift p:last-child { margin-bottom: 0; }
+        .tour-title { font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 40px; }
+        .tour-item { display: flex; align-items: center; gap: 40px; margin-bottom: 48px; }
+        .tour-item:last-child { margin-bottom: 0; }
+        .tour-item.reverse { flex-direction: row-reverse; }
+        .tour-img {
+            flex: 0 0 58%; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+        }
+        .tour-img img { width: 100%; display: block; }
+        .tour-caption { flex: 1; font-size: 17px; font-weight: 500; line-height: 1.5; }
+        .mod-title { font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 32px; }
+        .mod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; text-align: center; }
+        .mod-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 10px; padding: 24px 12px;
+        }
+        .mod-card .abbr { font-size: 26px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+        .mod-card .label { font-size: 12px; color: var(--light); }
+        .trust { display: flex; gap: 40px; max-width: 720px; margin: 0 auto; }
+        .trust-col { flex: 1; }
+        .trust-col h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .trust-col p { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 20px; text-align: center;
+            font-size: 13px; color: var(--light);
+        }
+        .footer-nav { margin-bottom: 10px; }
+        .footer-nav a, .footer-nav span { margin: 0 8px; }
+        .footer-nav .current { color: var(--fg); font-weight: 600; }
+        @media (max-width: 680px) {
+            .hero { padding: 56px 20px 44px; }
+            .hero h1 { font-size: 26px; }
+            .hero .tagline { font-size: 16px; }
+            .tour-item, .tour-item.reverse { flex-direction: column; gap: 16px; }
+            .tour-img { flex: none; width: 100%; }
+            .mod-grid { grid-template-columns: repeat(2, 1fr); }
+            .trust { flex-direction: column; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <img src="assets/icon.png" alt="VoxelVision" class="hero-icon">
+        <h1>VoxelVision</h1>
+        <p class="tagline">Medical imaging, reimagined in 3D space.</p>
+        <a class="app-store-badge" href="https://apps.apple.com/app/voxelvision/id6762214194" target="_blank" rel="noopener">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+    </div>
+
+    <section class="shift">
+        <div class="container">
+            <p>Most medical imaging viewers were built for desktops — even those with 3D capabilities still map volumetric navigation onto mouse clicks and scroll wheels. The data is three-dimensional, but the interaction isn't.</p>
+            <p>VoxelVision is a native DICOM viewer for visionOS. Your volume sits in your physical space. Navigate anatomy with natural hand gestures in 3D space — drag to slice, pinch to scale, reposition freely. No mouse, no translation layer between intent and action.</p>
+            <p>If you work with CT, MR, or PET data — for study, research, teaching, or workflow exploration — VoxelVision brings the interaction up to the dimensionality of the data.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="tour-title">See It in Action</h2>
+            <div class="tour-item">
+                <div class="tour-img"><img src="assets/screenshot-immersive.png" alt="Immersive oblique plane viewer"></div>
+                <div class="tour-caption">Slice through anatomy at any angle in your room.</div>
+            </div>
+            <div class="tour-item reverse">
+                <div class="tour-img"><img src="assets/screenshot-ct.png" alt="CT slice browsing with window presets"></div>
+                <div class="tour-caption">CT tri-plane view with tissue-specific window presets.</div>
+            </div>
+            <div class="tour-item">
+                <div class="tour-img"><img src="assets/screenshot-mr.png" alt="MR brain imaging"></div>
+                <div class="tour-caption">MR brain imaging with optimized auto window.</div>
+            </div>
+            <div class="tour-item reverse">
+                <div class="tour-img"><img src="assets/screenshot-pt.png" alt="PET whole-body imaging"></div>
+                <div class="tour-caption">Whole-body PET with uptake-specific visualization.</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="mod-title">Supported Modalities</h2>
+            <div class="mod-grid">
+                <div class="mod-card"><div class="abbr">CT</div><div class="label">Computed Tomography</div></div>
+                <div class="mod-card"><div class="abbr">MR</div><div class="label">Magnetic Resonance</div></div>
+                <div class="mod-card"><div class="abbr">PET</div><div class="label">Positron Emission Tomography</div></div>
+                <div class="mod-card"><div class="abbr">NM</div><div class="label">Nuclear Medicine</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="trust">
+                <div class="trust-col">
+                    <h3>Developer</h3>
+                    <p>Built by Mingwei Cui — Biomedical Engineering Doctorate, Tsinghua University · Independent Developer.</p>
+                </div>
+                <div class="trust-col">
+                    <h3>Privacy</h3>
+                    <p>All data processed and stored on-device. No cloud, no analytics, no tracking.</p>
+                    <p><a href="https://mingweicui.github.io/voxelvision-privacy/">Read the full Privacy Policy →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-nav">
+            <span class="current">VoxelVision</span> ·
+            <a href="https://mingweicui.github.io/voxelvision-privacy/">Privacy Policy</a> ·
+            <a href="https://mingweicui.github.io/voxelvision-privacy/support.html">Support &amp; FAQ</a> ·
+            <a href="https://mingweicui.github.io/voxelvision-privacy/acknowledgements.html">Acknowledgements</a>
+        </div>
+        <p>© 2026 Mingwei Cui. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
