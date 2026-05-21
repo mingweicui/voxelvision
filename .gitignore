@@ -1,0 +1,28 @@
+# === macOS ===
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+Icon?
+
+# === Editor / IDE temp ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.history/
+
+# === Secrets & environment ===
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+
+# === Claude metadata ===
+.claude/
