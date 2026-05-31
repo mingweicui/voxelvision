@@ -1,2 +1,2 @@
 # voxelvision
-VoxelVision is a spatial DICOM viewer built for Apple Vision Pro. Import your DICOM files and explore medical imaging in an entirely new dimension.
+VoxelVision is an AR DICOM Viewer for Apple Vision Pro, iPad, and iPhone. Import CT, MR, PET, and NM data and explore volumes in 3D space.
