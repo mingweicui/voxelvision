@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VoxelVision — Support</title>
-    <meta name="description" content="Support information and frequently asked questions for VoxelVision — an AR DICOM viewer for Apple Vision Pro, iPad, and iPhone.">
+    <meta name="description" content="Support information and frequently asked questions for VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone.">
     <meta property="og:title" content="VoxelVision — Support &amp; FAQ">
-    <meta property="og:description" content="Support information and frequently asked questions for VoxelVision — an AR DICOM viewer for Apple Vision Pro, iPad, and iPhone.">
+    <meta property="og:description" content="Support information and frequently asked questions for VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone.">
     <meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
     <meta property="og:url" content="https://mingweicui.github.io/voxelvision/support.html">
     <meta property="og:type" content="website">
@@ -84,7 +84,7 @@
     <header>
         <img src="assets/icon.png" alt="VoxelVision" class="app-icon">
         <h1>VoxelVision Support</h1>
-        <p class="subtitle">AR DICOM Viewer for Apple Vision Pro, iPad, and iPhone</p>
+        <p class="subtitle">AR Medical Imaging for Apple Vision Pro, iPad, and iPhone</p>
     </header>
 
     <h2>Contact</h2>
@@ -92,7 +92,7 @@
         <p>For bug reports, feature requests, or any questions:</p>
         <p><strong>Email:</strong> <a href="mailto:voxelvisionsupport@gmail.com">voxelvisionsupport@gmail.com</a></p>
     </div>
-    <p>When reporting an issue, including the following information helps resolve it faster: a description of what happened, the steps to reproduce it, and your app version and OS version. For your convenience, you can also attach runtime logs exported from the in-app "Logs &amp; Feedback" page — the logs do not contain any personal or medical data.</p>
+    <p>When reporting an issue, including the following information helps resolve it faster: a description of what happened, the steps to reproduce it, and your app version and OS version. For your convenience, tap "Email with Logs" on the in-app "Logs &amp; Feedback" page — it opens a pre-filled email with the runtime log attached. The logs do not contain any personal or medical data.</p>
 
     <h2>Frequently Asked Questions</h2>
 
@@ -125,13 +125,13 @@
 
     <div class="faq-item">
         <h3>Does VoxelVision run on Mac?</h3>
-        <p>Partially. As of version 1.1.1, when the iOS app runs on an Apple Silicon Mac (via "Designed for iPad"), you can import DICOM folders and view CT, MR, and PET in 2D — the pre-installed sample datasets work as well. This covers the basic viewing workflow. And just as on iPad, you can open multiple windows — press Command-N on Mac — to work with several cases side by side, or keep a case open alongside the Help or About page.</p>
-        <p>The Oblique Plane Viewer — the app's core spatial experience — is not available on Mac. It relies on a moving viewpoint anchored to a mobile device with a rear camera (or, on Apple Vision Pro, the head-mounted spatial coordinate system), and a Mac is neither. For that reason the Oblique Plane Viewer and its in-app purchase are not offered when the app runs on Mac.</p>
+        <p>Partially. When the iOS app runs on an Apple Silicon Mac (via "Designed for iPad"), you can import DICOM folders and view CT, MR, PET, and NM — as well as NIfTI and NRRD volumes — in 2D — the pre-installed sample datasets work as well. This covers the basic viewing workflow. And just as on iPad, you can open multiple windows — press Command-N on Mac — to work with several cases side by side, or keep a case open alongside the Help or About page.</p>
+        <p>The Oblique Plane Viewer — the app's core spatial experience — is not available on Mac. It relies on a moving viewpoint anchored to a mobile device with a rear camera (or, on Apple Vision Pro, the head-mounted spatial coordinate system), and a Mac is neither. For that reason the Oblique Plane Viewer and its in-app purchase are not offered when the app runs on Mac. Mark &amp; Measure, which lives inside the Oblique Plane Viewer, is likewise unavailable on Mac, and its color settings are hidden there.</p>
     </div>
 
     <div class="faq-item">
         <h3>What file formats does VoxelVision support?</h3>
-        <p>VoxelVision supports importing DICOM folders containing CT, MR, PET, or NM series. The app converts DICOM data to an optimized internal format for spatial viewing. Built-in sample images (CT, MR, and PET) are included for first-time exploration.</p>
+        <p>VoxelVision imports DICOM folders containing CT, MR, PET, or NM series, as well as single-file NIfTI (.nii, .nii.gz) and NRRD (.nrrd) volumes. The app converts imported data to an optimized internal format for spatial viewing. Five built-in sample datasets — CT, MR, PET, NIfTI, and NRRD — are included for first-time exploration.</p>
     </div>
 
     <div class="faq-item">
@@ -140,8 +140,8 @@
     </div>
 
     <div class="faq-item">
-        <h3>How do I import DICOM files?</h3>
-        <p>Tap the "Import Image" button on the main screen, then select a folder containing DICOM files. VoxelVision will scan the folder, let you choose which series to import, and convert the data for spatial viewing.</p>
+        <h3>How do I import files?</h3>
+        <p>Tap the "Import Image" button on the main screen, then select a folder containing DICOM files. VoxelVision will scan the folder, let you choose which series to import, and convert the data for spatial viewing. For NIfTI or NRRD, select the single file directly — no folder needed.</p>
     </div>
 
     <div class="faq-item">
@@ -155,8 +155,23 @@
     </div>
 
     <div class="faq-item">
+        <h3>I already purchased the Oblique Plane Viewer. Does Mark &amp; Measure cost extra?</h3>
+        <p>No. Mark &amp; Measure is part of the Oblique Plane Viewer functionality and is included in the existing in-app purchase. If you already own the Oblique Plane Viewer, Mark &amp; Measure is available in version 1.2.0 at no additional cost.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Can I use the measurements for clinical decisions?</h3>
+        <p>No. Measurements are computed on-device from the imported volume's own spatial metadata and are provided for personal exploration, education, and research purposes only. VoxelVision is not a certified medical device, and its measurements must not be used for clinical diagnosis or treatment decisions.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Where are my markers and measurements stored?</h3>
+        <p>On your device, alongside the case they belong to. Nothing is uploaded. If you export measurements as a CSV file, the export is initiated by you and saved to the Files app.</p>
+    </div>
+
+    <div class="faq-item">
         <h3>What about the sample images?</h3>
-        <p>VoxelVision includes three pre-installed sample images — CT (<a href="https://www.cancerimagingarchive.net/collection/lidc-idri/">LIDC-IDRI</a>, CC BY 3.0), MR (<a href="https://www.cancerimagingarchive.net/collection/upenn-gbm/">UPENN-GBM</a>, CC BY 4.0), and PET (<a href="https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/">ACRIN-NSCLC-FDG-PET</a>, CC BY 3.0) — so you can explore the app immediately without importing your own data. You can keep them, or delete them at any time.</p>
+        <p>VoxelVision includes five pre-installed sample datasets — CT (<a href="https://www.cancerimagingarchive.net/collection/lidc-idri/">LIDC-IDRI</a>, CC BY 3.0), MR (<a href="https://www.cancerimagingarchive.net/collection/upenn-gbm/">UPENN-GBM</a>, CC BY 4.0), PET (<a href="https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/">ACRIN-NSCLC-FDG-PET</a>, CC BY 3.0), NIfTI (<a href="https://openneuro.org/datasets/ds000030/">OpenNeuro ds000030</a>, CC0 1.0), and NRRD (<a href="https://www.slicer.org/">3D Slicer MRHead</a>, donated for unrestricted use) — so you can explore the app immediately without importing your own data. You can keep them, or delete them at any time.</p>
     </div>
 
     <div class="faq-item">
@@ -166,7 +181,7 @@
 
     <div class="faq-item">
         <h3>How do I reload the sample images after deleting them?</h3>
-        <p>Delete the app and reinstall from the App Store. The sample images (CT, MR, and PET) will be automatically restored.</p>
+        <p>Delete the app and reinstall from the App Store. The sample images (all five) will be automatically restored.</p>
     </div>
 
     <div class="faq-item">
@@ -176,7 +191,7 @@
 
     <div class="faq-item">
         <h3>Which languages are supported?</h3>
-        <p>VoxelVision supports 14 languages: English, Simplified Chinese, Traditional Chinese, Japanese, Korean, French, German, Spanish, Italian, Brazilian Portuguese, European Portuguese, Arabic, Dutch, and Turkish.</p>
+        <p>VoxelVision supports 15 languages: English, Simplified Chinese, Traditional Chinese, Japanese, Korean, French, German, Spanish, Italian, Brazilian Portuguese, European Portuguese, Arabic, Dutch, Turkish, and Russian.</p>
     </div>
 
     <footer>
