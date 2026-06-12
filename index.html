@@ -162,7 +162,7 @@
         <h1>VoxelVision</h1>
         <p class="tagline">Medical imaging, reimagined in 3D space.</p>
         <p class="hero-banner">Born on Apple Vision Pro. Now on iPad and iPhone.</p>
-        <a class="app-store-badge" href="https://apps.apple.com/app/voxelvision/id6762214194" target="_blank" rel="noopener">
+        <a class="app-store-badge" id="app-store-link" href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&amp;ct=landing&amp;mt=8" target="_blank" rel="noopener">
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
         </a>
     </div>
@@ -253,6 +253,17 @@
         </div>
         <p>© 2026 <a href="https://mingweicui.github.io/">Mingwei Cui</a>. All rights reserved.</p>
     </footer>
+
+    <script>
+    (function () {
+        var ref = new URLSearchParams(window.location.search).get('ref');
+        if (!ref) return;
+        ref = ref.toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 30);
+        if (!ref) return;
+        var link = document.getElementById('app-store-link');
+        if (link) link.href = link.href.replace('ct=landing', 'ct=' + ref);
+    })();
+    </script>
 
 </body>
 </html>
