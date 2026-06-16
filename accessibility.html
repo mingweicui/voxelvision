@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxelVision — Accessibility</title>
+    <meta name="description" content="Accessibility support in VoxelVision — Dynamic Type, Dark Interface, color-independent differentiation, sufficient contrast, reduced motion, and Voice Control across Apple Vision Pro, iPad, and iPhone.">
+    <meta property="og:title" content="VoxelVision — Accessibility">
+    <meta property="og:description" content="How VoxelVision supports Apple accessibility features across Apple Vision Pro, iPad, and iPhone.">
+    <meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
+    <meta property="og:url" content="https://mingweicui.github.io/voxelvision/accessibility.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icon.png">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #276BEA;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #f0f0f0;
+                --muted: #999;
+                --border: #333;
+                --accent: #4da3ff;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 40px 20px 80px;
+        }
+        .container { max-width: 680px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .app-icon { width: 96px; height: 96px; margin-bottom: 16px; }
+        h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px; }
+        .subtitle { color: var(--muted); font-size: 15px; }
+        .intro { font-size: 15px; color: var(--fg); margin-bottom: 8px; }
+        h2 { font-size: 20px; font-weight: 600; margin: 36px 0 12px; }
+        p { margin-bottom: 16px; font-size: 15px; color: var(--fg); }
+        .platforms { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
+        .note { font-size: 14px; color: var(--muted); }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .effective {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--muted);
+        }
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--muted);
+            text-align: center;
+        }
+        .footer-nav { margin-bottom: 10px; }
+        .footer-nav a, .footer-nav span { margin: 0 6px; }
+        .footer-nav .current { color: var(--fg); font-weight: 600; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="assets/icon.png" alt="VoxelVision" class="app-icon">
+        <h1>VoxelVision Accessibility</h1>
+        <p class="subtitle">AR Medical Imaging for Apple Vision Pro, iPad, and iPhone</p>
+    </header>
+
+    <p class="intro">VoxelVision is built on Apple's native frameworks and adopts their accessibility technologies so that people with a wide range of abilities can use it. This page describes the accessibility features VoxelVision supports and how each is implemented. Features apply across Apple Vision Pro, iPad, and iPhone unless noted otherwise.</p>
+
+    <h2>Larger Text (Dynamic Type)</h2>
+    <p class="platforms">Apple Vision Pro · iPad · iPhone</p>
+    <p>Interface text is set with system text styles and scales with the Larger Text setting in the operating system. Labels adapt to the chosen size, and layouts adjust to keep content legible at larger sizes. Spatial labels rendered inside the 3D scene use real-world sizing appropriate to their position in space.</p>
+
+    <h2>Dark Interface</h2>
+    <p class="platforms">iPad · iPhone</p>
+    <p>VoxelVision applies a dark color scheme to its screens, menus, and controls when Dark Mode is enabled, and offers an in-app appearance setting (System, Light, Dark). Colors are defined with system semantic colors that adapt automatically to the active appearance. On Apple Vision Pro, the system presents a unified spatial appearance rather than a user-level light/dark choice, so this setting is offered on iPad and iPhone.</p>
+
+    <h2>Differentiate Without Color Alone</h2>
+    <p class="platforms">Apple Vision Pro · iPad · iPhone</p>
+    <p>Status and selection are conveyed by more than color. Selected tools and modes are distinguished by both shape and emphasis, not color alone; markers carry a text label in addition to their color; and measurement types are shown with distinct icons. Anyone who cannot rely on color can still tell interface states apart.</p>
+
+    <h2>Sufficient Contrast</h2>
+    <p class="platforms">Apple Vision Pro · iPad · iPhone</p>
+    <p>Text and interface elements use system colors that adapt to the active appearance and to the system's contrast settings, so content stays legible across light and dark environments. The accent color is reserved for interactive controls and selected states rather than body text, which uses standard system label colors. Annotations placed over imaging remain legible against any image brightness.</p>
+
+    <h2>Reduced Motion</h2>
+    <p class="platforms">Apple Vision Pro · iPad · iPhone</p>
+    <p>When Reduce Motion is enabled in the operating system, VoxelVision suppresses non-essential decorative animation. Slice navigation, marker placement, and volume manipulation respond directly to your gestures, and on-screen readouts shown while placing a point remain steady and easy to read.</p>
+
+    <h2>Voice Control</h2>
+    <p class="platforms">Apple Vision Pro · iPad · iPhone</p>
+    <p>Interface controls carry accessibility labels so they can be activated by name with Voice Control — navigation, tools, mode and type selection, measurement actions, and color choices. Some core interactions in the Oblique Plane Viewer — continuously slicing through a volume, freely rotating, scaling, and positioning it, and placing points directly in space — are precise, continuous spatial tasks central to the app's purpose and are performed with gestures rather than spoken commands.</p>
+
+    <h2>Feedback</h2>
+    <p>Accessibility is an ongoing effort. If you encounter a barrier using VoxelVision, or have a suggestion, please contact <a href="mailto:voxelvisionsupport@gmail.com">voxelvisionsupport@gmail.com</a>.</p>
+
+    <div class="effective">Last updated: June 15, 2026</div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="index.html">VoxelVision</a> ·
+            <a href="privacy.html">Privacy Policy</a> ·
+            <a href="support.html">Support &amp; FAQ</a> ·
+            <a href="acknowledgements.html">Acknowledgements</a> ·
+            <span class="current">Accessibility</span>
+        </div>
+        <p>© 2026 <a href="https://mingweicui.github.io/">Mingwei Cui</a>. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>
