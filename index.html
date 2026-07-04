@@ -1,270 +1,285 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone</title>
-    <meta name="description" content="View &amp; measure MPR in 3D space. CT, MR, PET, and NM via DICOM, plus NIfTI and NRRD volumes.">
-    <meta property="og:title" content="VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone">
-    <meta property="og:description" content="View &amp; measure MPR in 3D space. CT, MR, PET, and NM via DICOM, plus NIfTI and NRRD volumes.">
-    <meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
-    <meta property="og:url" content="https://mingweicui.github.io/voxelvision/">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" href="assets/icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="assets/icon.png">
-    <style>
-        :root {
-            --bg: #fafafa;
-            --fg: #1a1a1a;
-            --muted: #555;
-            --light: #888;
-            --border: #e0e0e0;
-            --accent: #276BEA;
-            --card-bg: #fff;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #111;
-                --fg: #f0f0f0;
-                --muted: #bbb;
-                --light: #888;
-                --border: #2a2a2a;
-                --accent: #4da3ff;
-                --card-bg: #1a1a1a;
-            }
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--fg);
-            line-height: 1.7;
-        }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .hero {
-            background: linear-gradient(135deg, #276BEA 0%, #1a237e 100%);
-            color: #fff;
-            text-align: center;
-            padding: 72px 20px 56px;
-        }
-        .hero-icon {
-            width: 112px; height: 112px;
-            margin-bottom: 20px;
-        }
-        .hero h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
-        .hero .tagline { font-size: 19px; opacity: 0.92; margin-bottom: 28px; font-weight: 300; }
-        .app-store-badge { display: inline-block; transition: opacity 0.2s; }
-        .app-store-badge:hover { opacity: 0.85; }
-        .app-store-badge img { height: 50px; }
-        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-        section { padding: 60px 0; }
-        section + section { border-top: 1px solid var(--border); }
-        .shift p {
-            font-size: 16px; color: var(--muted);
-            max-width: 720px; margin: 0 auto 18px; text-align: center;
-        }
-        .shift p:last-child { margin-bottom: 0; }
-        .platform-grid {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-        .platform-card { text-align: center; }
-        .platform-card .platform-frame {
-            height: 360px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-        }
-        .platform-card.visionpro .platform-frame { aspect-ratio: 4 / 5; }
-        .platform-card.ipad      .platform-frame { aspect-ratio: 4 / 5; }
-        .platform-card.iphone    .platform-frame { aspect-ratio: 9 / 16; }
-        .platform-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .platform-caption {
-            margin-top: 10px;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--muted);
-        }
-        .tour-subtitle {
-            text-align: center; font-size: 15px; color: var(--muted);
-            margin-top: -24px; margin-bottom: 32px; font-style: italic;
-        }
-        .platform-note {
-            text-align: center; font-size: 12px; color: var(--light);
-            margin-top: 8px; margin-bottom: 0;
-        }
-        .subsection-title {
-            font-size: 18px; font-weight: 600; text-align: center;
-            margin-top: 56px; margin-bottom: 24px; color: var(--fg);
-        }
-        .hero-banner {
-            font-size: 14px; opacity: 0.88; margin-top: 14px;
-            font-weight: 400; letter-spacing: 0.3px;
-        }
-        .tour-title { font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 40px; }
-        .tour-item { display: flex; align-items: center; gap: 40px; margin-bottom: 48px; }
-        .tour-item:last-child { margin-bottom: 0; }
-        .tour-item.reverse { flex-direction: row-reverse; }
-        .tour-img {
-            flex: 0 0 58%; border-radius: 10px; overflow: hidden;
-            box-shadow: 0 3px 20px rgba(0,0,0,0.1);
-        }
-        .tour-img img { width: 100%; display: block; }
-        .tour-caption { flex: 1; font-size: 17px; font-weight: 500; line-height: 1.5; }
-        .mod-title { font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 32px; }
-        .mod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; text-align: center; }
-        .mod-card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 10px; padding: 24px 12px;
-        }
-        .mod-card .abbr { font-size: 26px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
-        .mod-card .label { font-size: 12px; color: var(--light); }
-        .trust { display: flex; gap: 40px; max-width: 720px; margin: 0 auto; }
-        .trust-col { flex: 1; }
-        .trust-col h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-        .trust-col p { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px 20px; text-align: center;
-            font-size: 13px; color: var(--light);
-        }
-        .footer-nav { margin-bottom: 10px; }
-        .footer-nav a, .footer-nav span { margin: 0 8px; }
-        .footer-nav .current { color: var(--fg); font-weight: 600; }
-        @media (max-width: 680px) {
-            .hero { padding: 56px 20px 44px; }
-            .hero h1 { font-size: 26px; }
-            .hero .tagline { font-size: 16px; }
-            .platform-grid { gap: 24px; flex-direction: column; align-items: center; }
-            .platform-card .platform-frame { height: auto; width: 100%; max-width: 320px; }
-            .tour-item, .tour-item.reverse { flex-direction: column; gap: 16px; }
-            .tour-img { flex: none; width: 100%; }
-            .mod-grid { grid-template-columns: repeat(2, 1fr); }
-            .trust { flex-direction: column; gap: 24px; }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+<title>VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone</title>
+<meta name="description" content="View & measure MPR in 3D space. CT, MR, PET, and NM via DICOM, plus NIfTI and NRRD volumes. Born on Apple Vision Pro. Now on iPad and iPhone.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone">
+<meta property="og:description" content="View & measure MPR in 3D space. CT, MR, PET, and NM via DICOM, plus NIfTI and NRRD volumes.">
+<meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
+<meta property="og:url" content="https://mingweicui.github.io/voxelvision/">
+<meta name="twitter:card" content="summary">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:#05070d; }
+  a { text-decoration:none; }
+  @keyframes vvfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+  @keyframes vvpulse { 0%,100% { opacity:.4; transform:scale(1); } 50% { opacity:1; transform:scale(1.25); } }
+  @keyframes vvdrift { 0% { background-position:0 0; } 100% { background-position:340px 340px; } }
+  @keyframes vvrise { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
-    <div class="hero">
-        <img src="assets/icon.png" alt="VoxelVision" class="hero-icon">
-        <h1>VoxelVision</h1>
-        <p class="tagline">Medical imaging, reimagined in 3D space.</p>
-        <p class="hero-banner">Born on Apple Vision Pro. Now on iPad and iPhone.</p>
-        <a class="app-store-badge" id="app-store-link" href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&amp;ct=landing&amp;mt=8" target="_blank" rel="noopener">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-        </a>
+  @media (max-width:860px){
+    .vvnav{padding:14px 18px!important;}
+    .vvlinks{gap:12px 16px!important;font-size:13px!important;flex-wrap:wrap!important;justify-content:flex-end!important;}
+  }
+  @media (max-width:720px){
+    .vvplat{grid-template-columns:1fr!important;}
+  }
+</style>
+</helmet>
+
+<div style="background:#05070d; color:#eef1f6; font-family:'Hanken Grotesk',sans-serif; overflow:hidden; -webkit-font-smoothing:antialiased;">
+
+  <!-- ================= NAV ================= -->
+  <nav class="vvnav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(5,7,13,.72); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.06);">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
+      <img src="assets/icon.png" alt="VoxelVision" style="width:30px; height:30px; border-radius:9px; display:block;">
+      <span style="font-family:'Sora',sans-serif; font-weight:700; font-size:18px; letter-spacing:-.01em;">VoxelVision</span>
+    </a>
+    <div class="vvlinks" style="display:flex; align-items:center; gap:30px; font-size:14.5px; color:#9fb0c8;">
+      <a href="#platforms" style="color:#9fb0c8;">Platforms</a>
+      <a href="#modalities" style="color:#9fb0c8;">Modalities</a>
+      <a href="#research" style="color:#9fb0c8;">Validation</a>
+      <a href="support.html" style="color:#9fb0c8;">Support</a>
+      <a href="privacy.html" style="color:#9fb0c8;">Privacy</a>
+      <a class="vvcta" href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&ct=landing&mt=8" style="color:#fff; background:linear-gradient(100deg,#2979FF,#1A237E); padding:9px 18px; border-radius:999px; font-weight:600; font-size:14px; box-shadow:0 8px 24px -8px rgba(41,121,255,.7);">Download</a>
     </div>
+  </nav>
 
-    <section class="shift">
-        <div class="container">
-            <p>Most medical imaging viewers were built for desktops — even those with 3D capabilities still map volumetric navigation onto mouse clicks and scroll wheels. The data is three-dimensional, but the interaction isn't.</p>
-            <p>VoxelVision is a native spatial medical imaging app for Apple Vision Pro, iPad, and iPhone. Your volume sits in your physical space. Navigate anatomy with natural gestures in 3D — drag to slice, pinch to scale, reposition freely. View and measure in one motion, with no translation layer between intent and action.</p>
-            <p>If you work with CT, MR, PET, or NM data — or NIfTI and NRRD research volumes — for study, research, teaching, or workflow exploration, VoxelVision brings the interaction up to the dimensionality of the data.</p>
+  <!-- ================= HERO ================= -->
+  <header style="position:relative; min-height:820px; overflow:hidden;">
+    <img src="assets/immersive-visionpro.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.5;">
+    <div style="position:absolute; inset:0; background:radial-gradient(80% 70% at 76% 34%, rgba(41,121,255,.34) 0%, transparent 55%), radial-gradient(70% 90% at 16% 92%, rgba(26,35,126,.5) 0%, transparent 60%), linear-gradient(180deg, rgba(5,7,13,.4) 0%, rgba(5,7,13,.72) 52%, #05070d 100%);"></div>
+    <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(120,170,255,.16) 1px, transparent 1.5px); background-size:34px 34px; opacity:.5; mask-image:linear-gradient(180deg,transparent,#000 35%,#000 72%,transparent); animation:vvdrift 40s linear infinite;"></div>
+
+    <div style="position:relative; max-width:1200px; margin:0 auto; padding:120px 40px 90px;">
+      <div style="max-width:760px; animation:vvrise .8s ease both;">
+        <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#9dc2ff; border:1px solid rgba(157,194,255,.28); border-radius:999px; padding:7px 15px; margin-bottom:30px;">
+          <span style="width:6px; height:6px; border-radius:50%; background:#4DA3FF; box-shadow:0 0 10px #4DA3FF; animation:vvpulse 2.4s ease-in-out infinite;"></span>Spatial medical imaging · CT / MR / PET / NM
         </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <h2 class="tour-title">See It in Action</h2>
-
-            <h3 class="subsection-title">One Experience, Three Platforms</h3>
-            <p class="tour-subtitle">Slice through volumetric studies in 3D — wherever you are.</p>
-            <div class="platform-grid">
-                <div class="platform-card visionpro">
-                    <div class="platform-frame">
-                        <img src="assets/immersive-visionpro.png" alt="Oblique Plane Viewer on Apple Vision Pro">
-                    </div>
-                    <div class="platform-caption">Apple Vision Pro</div>
-                </div>
-                <div class="platform-card ipad">
-                    <div class="platform-frame">
-                        <img src="assets/immersive-ipad.png" alt="Oblique Plane Viewer on iPad">
-                    </div>
-                    <div class="platform-caption">iPad</div>
-                </div>
-                <div class="platform-card iphone">
-                    <div class="platform-frame">
-                        <img src="assets/immersive-iphone.png" alt="Oblique Plane Viewer on iPhone">
-                    </div>
-                    <div class="platform-caption">iPhone</div>
-                </div>
-            </div>
-            <p class="platform-note">Examples shown with a CT case.</p>
-
-            <h3 class="subsection-title">Multi-Modality 2D Viewing</h3>
-            <div class="tour-item">
-                <div class="tour-img"><img src="assets/screenshot-mr.png" alt="MR brain imaging"></div>
-                <div class="tour-caption">MR brain imaging in synchronized orthogonal views.</div>
-            </div>
-            <div class="tour-item reverse">
-                <div class="tour-img"><img src="assets/screenshot-pt.png" alt="PET whole-body imaging"></div>
-                <div class="tour-caption">Whole-body PET with adjustable window presets.</div>
-            </div>
+        <h1 style="font-family:'Sora',sans-serif; font-size:clamp(40px,10vw,88px); line-height:.96; letter-spacing:-.04em; font-weight:800; margin:0 0 26px; background:linear-gradient(178deg,#ffffff 30%,#b9ccf0); -webkit-background-clip:text; background-clip:text; color:transparent;">Step inside<br>the scan.</h1>
+        <p style="font-size:22px; line-height:1.5; color:#c2cee0; max-width:560px; margin:0 0 18px; font-weight:300;">A native spatial viewer for CT, MR, PET, and NM studies — plus NIfTI and NRRD volumes.</p>
+        <p style="font-size:22px; line-height:1.5; color:#c2cee0; max-width:560px; margin:0 0 40px; font-weight:300;">Born on Apple Vision Pro. Now on iPad and iPhone.</p>
+        <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+          <a href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&ct=landing&mt=8"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:54px; display:block;"></a>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:.05em; color:#8ba0bd;">Vision&nbsp;Pro · iPad · iPhone</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <section>
-        <div class="container">
-            <h2 class="mod-title">Supported Modalities</h2>
-            <div class="mod-grid">
-                <div class="mod-card"><div class="abbr">CT</div><div class="label">Computed Tomography</div></div>
-                <div class="mod-card"><div class="abbr">MR</div><div class="label">Magnetic Resonance</div></div>
-                <div class="mod-card"><div class="abbr">PET</div><div class="label">Positron Emission Tomography</div></div>
-                <div class="mod-card"><div class="abbr">NM</div><div class="label">Nuclear Medicine</div></div>
-            </div>
-            <p class="platform-note">Plus single-file NIfTI and NRRD volume import.</p>
+  <!-- ================= PROBLEM STATEMENT ================= -->
+  <section style="max-width:1000px; margin:0 auto; padding:110px 40px;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#4DA3FF; margin-bottom:26px;">Why spatial</div>
+    <p style="font-family:'Sora',sans-serif; font-size:34px; line-height:1.3; letter-spacing:-.02em; font-weight:400; margin:0; color:#e7ecf5;"><span style="color:#6f8299;">Volumetric medical imaging has always been three-dimensional.</span> Now the interaction is too — view and measure freely in your own physical space.</p>
+  </section>
+
+  <!-- ================= PLATFORMS ================= -->
+  <section id="platforms" style="max-width:1200px; margin:0 auto; padding:20px 40px 100px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:40px; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#4DA3FF; margin-bottom:16px;">See it in action</div>
+        <h2 style="font-family:'Sora',sans-serif; font-size:clamp(30px,6vw,46px); line-height:1.04; letter-spacing:-.03em; font-weight:700; margin:0; color:#f2f5fa;">One experience,<br>three platforms.</h2>
+      </div>
+      <p style="font-size:16px; color:#8ba0bd; max-width:320px; margin:0;">Slice through volumetric studies in 3D — wherever you are. Examples shown with a CT case.</p>
+    </div>
+    <div class="vvplat" style="display:grid; grid-template-columns:0.8fr 0.8fr 0.562fr; gap:16px; align-items:start;">
+      <figure style="margin:0; position:relative; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:#0a0e18; box-shadow:0 40px 80px -50px #000;">
+        <img src="assets/immersive-visionpro.png" alt="Oblique Plane Viewer on Apple Vision Pro" style="width:100%; height:auto; display:block;">
+        <figcaption style="position:absolute; left:18px; bottom:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; color:#fff; text-shadow:0 1px 8px #000;">APPLE VISION PRO</figcaption>
+      </figure>
+      <figure style="margin:0; position:relative; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:#0a0e18; box-shadow:0 40px 80px -50px #000;">
+        <img src="assets/immersive-ipad.png" alt="Oblique Plane Viewer on iPad" style="width:100%; height:auto; display:block;">
+        <figcaption style="position:absolute; left:18px; bottom:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; color:#fff; text-shadow:0 1px 8px #000;">IPAD</figcaption>
+      </figure>
+      <figure style="margin:0; position:relative; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:#0a0e18; box-shadow:0 40px 80px -50px #000;">
+        <img src="assets/immersive-iphone.png" alt="Oblique Plane Viewer on iPhone" style="width:100%; height:auto; display:block;">
+        <figcaption style="position:absolute; left:18px; bottom:16px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; color:#fff; text-shadow:0 1px 8px #000;">IPHONE</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTION FEATURES ================= -->
+  <section style="max-width:1200px; margin:0 auto; padding:0 40px 100px;">
+    <div style="margin-bottom:40px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#4DA3FF; margin-bottom:16px;">The core interaction</div>
+      <h2 style="font-family:'Sora',sans-serif; font-size:clamp(30px,6vw,46px); line-height:1.04; letter-spacing:-.03em; font-weight:700; margin:0; color:#f2f5fa;">Two ways to view and measure.</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px;">
+      <div style="padding:34px 30px; border:1px solid rgba(255,255,255,.08); border-radius:20px; background:linear-gradient(180deg,rgba(41,121,255,.06),rgba(255,255,255,.01));">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#4DA3FF; letter-spacing:.14em; margin-bottom:20px;">01 / AUTOMATIC</div>
+        <h3 style="font-family:'Sora',sans-serif; font-size:24px; font-weight:600; letter-spacing:-.01em; margin:0 0 12px;">Tracked auto-slicing</h3>
+        <p style="font-size:16px; line-height:1.55; color:#9fb0c8; margin:0;">The oblique plane follows your viewpoint — head-tracked on Apple Vision Pro, device-tracked on iPad and iPhone. Move yourself, and the cut moves through the anatomy.</p>
+      </div>
+      <div style="padding:34px 30px; border:1px solid rgba(255,255,255,.08); border-radius:20px; background:linear-gradient(180deg,rgba(41,121,255,.06),rgba(255,255,255,.01));">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#4DA3FF; letter-spacing:.14em; margin-bottom:20px;">02 / MANUAL</div>
+        <h3 style="font-family:'Sora',sans-serif; font-size:24px; font-weight:600; letter-spacing:-.01em; margin:0 0 12px;">Fixed manual-slicing</h3>
+        <p style="font-size:16px; line-height:1.55; color:#9fb0c8; margin:0;">Lock the plane in place and drag it through the volume by hand — for slow, deliberate positioning and repeatable views.</p>
+      </div>
+      <div style="padding:34px 30px; border:1px solid rgba(255,255,255,.08); border-radius:20px; background:linear-gradient(180deg,rgba(41,121,255,.06),rgba(255,255,255,.01));">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#4DA3FF; letter-spacing:.14em; margin-bottom:20px;">03 / MEASURE</div>
+        <h3 style="font-family:'Sora',sans-serif; font-size:24px; font-weight:600; letter-spacing:-.01em; margin:0 0 12px;">Mark &amp; measure</h3>
+        <p style="font-size:16px; line-height:1.55; color:#9fb0c8; margin:0;">View and measure in one motion — no translation layer between intent and action. Computed on-device from the volume's own metadata, and fully exportable to CSV for analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MODALITY SHOWCASE ================= -->
+  <section id="modalities" style="position:relative; padding:100px 0;">
+    <div style="position:absolute; inset:0; background:radial-gradient(60% 60% at 50% 0%, rgba(41,121,255,.1), transparent 70%);"></div>
+    <div style="position:relative; max-width:1200px; margin:0 auto; padding:0 40px;">
+      <div style="text-align:center; margin-bottom:48px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#4DA3FF; margin-bottom:16px;">Multi-modality 2D viewing</div>
+        <h2 style="font-family:'Sora',sans-serif; font-size:clamp(30px,6vw,46px); line-height:1.04; letter-spacing:-.03em; font-weight:700; margin:0; color:#f2f5fa;">Every modality, in full color.</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px;">
+        <figure style="margin:0; position:relative; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.09); box-shadow:0 40px 90px -50px #000;">
+          <img src="assets/screenshot-pt.png" alt="Whole-body PET" style="width:100%; height:360px; object-fit:cover; display:block;">
+          <figcaption style="position:absolute; left:20px; bottom:18px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; color:#dbe6ff; text-shadow:0 1px 8px #000;">PET · WHOLE-BODY, ADJUSTABLE WINDOW PRESETS</figcaption>
+        </figure>
+        <figure style="margin:0; position:relative; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,.09); box-shadow:0 40px 90px -50px #000;">
+          <img src="assets/screenshot-mr.png" alt="MR brain imaging" style="width:100%; height:360px; object-fit:cover; display:block;">
+          <figcaption style="position:absolute; left:20px; bottom:18px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.1em; color:#dbe6ff; text-shadow:0 1px 8px #000;">MR · BRAIN, SYNCHRONIZED ORTHOGONAL VIEWS</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SUPPORTED MODALITIES STRIP ================= -->
+  <section style="max-width:1200px; margin:0 auto; padding:20px 40px 100px;">
+    <div style="border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:52px 48px; background:linear-gradient(160deg,rgba(255,255,255,.03),rgba(255,255,255,0));">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:16px clamp(22px,7vw,56px); margin-bottom:28px;">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-family:'Sora',sans-serif; font-size:clamp(34px,8vw,52px); font-weight:800; letter-spacing:-.03em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">CT</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#7f8aa0;">Computed Tomography</span>
         </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="trust">
-                <div class="trust-col">
-                    <h3>Developer</h3>
-                    <p>Built by Mingwei Cui — Biomedical Engineering Doctorate, Tsinghua University · Independent Developer.</p>
-                </div>
-                <div class="trust-col">
-                    <h3>Privacy</h3>
-                    <p>All data processed and stored on-device. No cloud upload, no analytics, no data collection, no ads.</p>
-                    <p><a href="privacy.html">Read the full Privacy Policy →</a></p>
-                </div>
-            </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-family:'Sora',sans-serif; font-size:clamp(34px,8vw,52px); font-weight:800; letter-spacing:-.03em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">MR</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#7f8aa0;">Magnetic Resonance</span>
         </div>
-    </section>
-
-    <footer>
-        <div class="footer-nav">
-            <span class="current">VoxelVision</span> ·
-            <a href="privacy.html">Privacy Policy</a> ·
-            <a href="support.html">Support &amp; FAQ</a> ·
-            <a href="acknowledgements.html">Acknowledgements</a> ·
-            <a href="accessibility.html">Accessibility</a>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-family:'Sora',sans-serif; font-size:clamp(34px,8vw,52px); font-weight:800; letter-spacing:-.03em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">PET</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#7f8aa0;">Positron Emission Tomography</span>
         </div>
-        <p>© 2026 <a href="https://mingweicui.github.io/">Mingwei Cui</a>. All rights reserved.</p>
-    </footer>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span style="font-family:'Sora',sans-serif; font-size:clamp(34px,8vw,52px); font-weight:800; letter-spacing:-.03em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1;">NM</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#7f8aa0;">Nuclear Medicine</span>
+        </div>
+      </div>
+      <p style="font-size:17px; color:#9fb0c8; margin:0; border-top:1px solid rgba(255,255,255,.07); padding-top:24px;">Imported via DICOM — plus single-file <strong style="color:#cdd8e8; font-weight:600;">NIfTI</strong> and <strong style="color:#cdd8e8; font-weight:600;">NRRD</strong> volume import, for education, research, and workflow exploration. True to its name, VoxelVision is built to give you full sight of the voxel — carrying volumetric studies across the imaging workflow, from clinical DICOM acquisitions to processed NIfTI and NRRD research volumes, into a single spatial view.</p>
+    </div>
+  </section>
 
-    <script>
-    (function () {
-        var ref = new URLSearchParams(window.location.search).get('ref');
-        if (!ref) return;
-        ref = ref.toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 30);
-        if (!ref) return;
-        var link = document.getElementById('app-store-link');
-        if (link) link.href = link.href.replace('ct=landing', 'ct=' + ref);
-    })();
-    </script>
+  <!-- ================= RESEARCH / VALIDATION ================= -->
+  <section id="research" style="position:relative; padding:96px 0; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); background:linear-gradient(180deg,#070a12,#05070d);">
+    <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(120,170,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,170,255,.05) 1px,transparent 1px); background-size:48px 48px; mask-image:radial-gradient(80% 80% at 50% 40%,#000,transparent);"></div>
+    <div style="position:relative; max-width:1100px; margin:0 auto; padding:0 40px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; align-items:end; margin-bottom:48px;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#4DA3FF; margin-bottom:18px;">Validation study</div>
+          <h2 style="font-family:'Sora',sans-serif; font-size:clamp(30px,6vw,46px); line-height:1.04; letter-spacing:-.03em; font-weight:700; margin:0; color:#f2f5fa;">Measured against<br>known geometry.</h2>
+        </div>
+        <p style="font-size:17px; line-height:1.6; color:#a9b8cc; margin:0;">A geometric-validation study characterized VoxelVision's pose-tracked double-oblique multiplanar reformation against reference phantoms — testing distance, angle, path, and perimeter across a three-tier validity gradient, on head-mounted and handheld platforms.</p>
+      </div>
 
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#7f8aa0; white-space:nowrap;">Three-tier validity gradient</span>
+        <span style="flex:1; height:1px; background:linear-gradient(90deg,rgba(127,138,160,.15),#2979FF);"></span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#9dc2ff; white-space:nowrap;">Cue realism increases →</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-bottom:34px;">
+        <div style="border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.02);">
+          <div style="aspect-ratio:1/1; background:#04060b;"><img src="assets/phantom-synth.jpg" alt="Synthetic phantom slice" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <div style="padding:20px 22px 24px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#7f8aa0; margin-bottom:12px;">Tier 1 · Synthetic phantom</div>
+            <div style="font-family:'Sora',sans-serif; font-size:24px; font-weight:700; letter-spacing:-.02em; line-height:1.1; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:8px;">bias ≤ 0.11 mm</div>
+            <div style="font-size:13.5px; line-height:1.45; color:#9fb0c8;">ICC ≥ 0.9999 · analytic ground truth, blinded</div>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.02);">
+          <div style="aspect-ratio:1/1; background:#04060b;"><img src="assets/phantom-ct.jpg" alt="CatPhan504-CTP404 phantom slice" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <div style="padding:20px 22px 24px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#7f8aa0; margin-bottom:12px;">Tier 2 · CatPhan504-CTP404</div>
+            <div style="font-family:'Sora',sans-serif; font-size:24px; font-weight:700; letter-spacing:-.02em; line-height:1.1; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:8px;">error ≈ 0.08 mm</div>
+            <div style="font-size:13.5px; line-height:1.45; color:#9fb0c8;">Unambiguous endpoints, at the resolution floor</div>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.02);">
+          <div style="aspect-ratio:1/1; background:#04060b;"><img src="assets/phantom-airway.jpg" alt="Anatomy-like airway-tree phantom slice" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <div style="padding:20px 22px 24px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; color:#7f8aa0; margin-bottom:12px;">Tier 3 · Anatomy-like phantom</div>
+            <div style="font-family:'Sora',sans-serif; font-size:24px; font-weight:700; letter-spacing:-.02em; line-height:1.1; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:8px;">residual &lt; 1 mm</div>
+            <div style="font-size:13.5px; line-height:1.45; color:#9fb0c8;">Correct feature identified, referenced to calipers</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:15px; line-height:1.6; color:#7f8aa0; margin:0; max-width:900px;">Across 570 blinded measurements on 100 single-target volumes, results were statistically equivalent across voxel spacing, platform, and session re-entry. Characterized with a single trained operator on phantoms with known reference geometry; generalization across independent operators and extrapolation to clinical anatomy define the boundary for subsequent study. VoxelVision is not a certified medical device.</p>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:.03em; line-height:1.6; color:#5f6f85; margin:22px 0 0;">Manuscript currently in peer review · full citation with doi to be added upon publication.</p>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:.03em; line-height:1.7; color:#5f6f85; margin:10px 0 0;">Open code &amp; data — analysis code, measurement records, and per-tier execution lists: <a href="https://github.com/mingweicui/VV-measurement-validation" style="color:#7f8aa0;">github.com/mingweicui/VV-measurement-validation</a> (MIT). Author-built phantom datasets (MCVV-SPH, MCVV-RPH) archived on <a href="https://doi.org/10.5281/zenodo.21029537" style="color:#7f8aa0;">Zenodo</a> (CC-BY-4.0).</p>
+    </div>
+  </section>
+
+  <!-- ================= PRIVACY ================= -->
+  <section id="privacy" style="max-width:1200px; margin:0 auto; padding:0 40px 100px;">
+    <div style="position:relative; border-radius:24px; overflow:hidden; border:1px solid rgba(41,121,255,.22); padding:64px 56px; background:radial-gradient(90% 140% at 100% 0%, rgba(41,121,255,.14), transparent 60%), #080b14;">
+      <div style="max-width:620px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#4DA3FF; margin-bottom:20px;">Privacy by architecture</div>
+        <h2 style="font-family:'Sora',sans-serif; font-size:42px; line-height:1.06; letter-spacing:-.03em; font-weight:700; margin:0 0 20px; color:#f2f5fa;">Nothing leaves your device.</h2>
+        <p style="font-size:19px; line-height:1.55; color:#a9b8cc; margin:0 0 30px; font-weight:300;">All imaging data is processed and stored on-device, in read-only mode. No cloud upload. No analytics. No data collection. No ads.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:8px 14px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:#c2cee0;">On-device only</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:8px 14px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:#c2cee0;">No network communication</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; padding:8px 14px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:#c2cee0;">No PHI collected</span>
+        </div>
+        <a href="privacy.html" style="display:inline-flex; align-items:center; gap:8px; margin-top:30px; color:#4DA3FF; font-size:15px; font-weight:600;">Read the full Privacy Policy →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DEVELOPER + CTA ================= -->
+  <section style="max-width:1200px; margin:0 auto; padding:0 40px 40px;">
+      <div style="position:relative; overflow:hidden; border-radius:24px; padding:56px 48px; background:linear-gradient(120deg,#2979FF,#1A237E); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.18) 1px, transparent 1.5px); background-size:26px 26px; opacity:.4;"></div>
+        <div style="position:relative; max-width:640px;">
+          <h3 style="font-family:'Sora',sans-serif; font-size:34px; font-weight:700; letter-spacing:-.02em; margin:0 0 10px; color:#fff;">Bring the interaction up to the data.</h3>
+          <p style="font-size:16px; color:rgba(255,255,255,.82); margin:0;">Free to download. Oblique Plane Viewer available as an in-app purchase.</p>
+        </div>
+        <a href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&ct=landing&mt=8" style="position:relative;"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:54px; display:block;"></a>
+      </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer style="border-top:1px solid rgba(255,255,255,.07); padding:44px 40px; background:#04060b;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+      <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
+        <img src="assets/icon.png" alt="VoxelVision" style="width:26px; height:26px; border-radius:7px; display:block;">
+        <span style="font-family:'Sora',sans-serif; font-weight:600; font-size:15px;">VoxelVision</span>
+      </a>
+      <div style="display:flex; gap:26px; font-size:14px; color:#8ba0bd; flex-wrap:wrap;">
+        <a href="index.html" style="color:#eef1f6;">Home</a>
+        <a href="privacy.html" style="color:#8ba0bd;">Privacy Policy</a>
+        <a href="support.html" style="color:#8ba0bd;">Support &amp; FAQ</a>
+        <a href="acknowledgements.html" style="color:#8ba0bd;">Acknowledgements</a>
+        <a href="accessibility.html" style="color:#8ba0bd;">Accessibility</a>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5f6f85;">© 2026 <a href="https://mingweicui.github.io/" style="color:#7f8aa0;">Mingwei Cui</a></span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
 </body>
 </html>

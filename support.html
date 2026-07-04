@@ -1,209 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoxelVision — Support</title>
-    <meta name="description" content="Support information and frequently asked questions for VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone.">
-    <meta property="og:title" content="VoxelVision — Support &amp; FAQ">
-    <meta property="og:description" content="Support information and frequently asked questions for VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone.">
-    <meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
-    <meta property="og:url" content="https://mingweicui.github.io/voxelvision/support.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <link rel="icon" href="assets/icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="assets/icon.png">
-    <style>
-        :root {
-            --bg: #fafafa;
-            --fg: #1a1a1a;
-            --muted: #666;
-            --border: #e0e0e0;
-            --accent: #276BEA;
-            --section-bg: #fff;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #1a1a1a;
-                --fg: #f0f0f0;
-                --muted: #999;
-                --border: #333;
-                --accent: #4da3ff;
-                --section-bg: #222;
-            }
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--fg);
-            line-height: 1.7;
-            padding: 40px 20px 80px;
-        }
-        .container { max-width: 680px; margin: 0 auto; }
-        header {
-            text-align: center;
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--border);
-        }
-        .app-icon { width: 96px; height: 96px; margin-bottom: 16px; }
-        h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px; }
-        .subtitle { color: var(--muted); font-size: 15px; }
-        h2 { font-size: 20px; font-weight: 600; margin: 36px 0 12px; }
-        p { margin-bottom: 16px; font-size: 15px; }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .contact-card {
-            background: var(--section-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        .contact-card p { margin-bottom: 8px; }
-        .contact-card p:last-child { margin-bottom: 0; }
-        .faq-item { margin-bottom: 24px; }
-        .faq-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-        .faq-item p { font-size: 14px; color: var(--muted); }
-        footer {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-            font-size: 13px;
-            color: var(--muted);
-            text-align: center;
-        }
-        .footer-nav { margin-bottom: 10px; }
-        .footer-nav a, .footer-nav span { margin: 0 6px; }
-        .footer-nav .current { color: var(--fg); font-weight: 600; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
-<div class="container">
-    <header>
-        <img src="assets/icon.png" alt="VoxelVision" class="app-icon">
-        <h1>VoxelVision Support</h1>
-        <p class="subtitle">AR Medical Imaging for Apple Vision Pro, iPad, and iPhone</p>
-    </header>
+<x-dc>
+<helmet>
+<title>VoxelVision — Support &amp; FAQ</title>
+<meta name="description" content="Support information and frequently asked questions for VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VoxelVision — Support &amp; FAQ">
+<meta property="og:description" content="Support information and frequently asked questions for VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone.">
+<meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
+<meta property="og:url" content="https://mingweicui.github.io/voxelvision/support.html">
+<meta name="twitter:card" content="summary">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#05070d; }
+  a { text-decoration:none; }
+  .vvbody a { color:#4DA3FF; }
+  .vvbody a:hover { text-decoration:underline; }
+  details.vvfaq summary { list-style:none; cursor:pointer; }
+  details.vvfaq summary::-webkit-details-marker { display:none; }
+  details.vvfaq summary .vvplus { transition:transform .25s ease; }
+  details.vvfaq[open] summary .vvplus { transform:rotate(45deg); }
 
-    <h2>Contact</h2>
-    <div class="contact-card">
-        <p>For bug reports, feature requests, or any questions:</p>
-        <p><strong>Email:</strong> <a href="mailto:voxelvisionsupport@gmail.com">voxelvisionsupport@gmail.com</a></p>
+  @media (max-width:860px){
+    .vvnav{padding:14px 18px!important;}
+    .vvlinks{gap:12px 16px!important;font-size:13px!important;flex-wrap:wrap!important;justify-content:flex-end!important;}
+  }
+  @media (max-width:720px){
+    .vvplat{grid-template-columns:1fr!important;}
+  }
+</style>
+</helmet>
+
+<div style="background:#05070d; color:#eef1f6; font-family:'Hanken Grotesk',sans-serif; -webkit-font-smoothing:antialiased;">
+
+  <!-- NAV -->
+  <nav class="vvnav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(5,7,13,.72); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.06);">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
+      <img src="assets/icon.png" alt="VoxelVision" style="width:30px; height:30px; border-radius:9px; display:block;">
+      <span style="font-family:'Sora',sans-serif; font-weight:700; font-size:18px; letter-spacing:-.01em;">VoxelVision</span>
+    </a>
+    <div class="vvlinks" style="display:flex; align-items:center; gap:28px; font-size:14.5px; color:#9fb0c8;">
+      <a href="index.html" style="color:#9fb0c8;">Home</a>
+      <a href="support.html" style="color:#eef1f6;">Support</a>
+      <a href="privacy.html" style="color:#9fb0c8;">Privacy</a>
+      <a class="vvcta" href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&ct=landing&mt=8" style="color:#fff; background:linear-gradient(100deg,#2979FF,#1A237E); padding:9px 18px; border-radius:999px; font-weight:600; font-size:14px; box-shadow:0 8px 24px -8px rgba(41,121,255,.7);">Download</a>
     </div>
-    <p>When reporting an issue, including the following information helps resolve it faster: a description of what happened, the steps to reproduce it, and your app version and OS version. For your convenience, tap "Email with Logs" on the in-app "Logs &amp; Feedback" page — it opens a pre-filled email with the runtime log attached. The logs do not contain any personal or medical data.</p>
+  </nav>
 
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-        <h3>Why does iPhone show a "wireless data" permission popup on first launch if VoxelVision processes images locally?</h3>
-        <p>The popup reads <em>"Allow 'VoxelVision' to use wireless data? Some functionality may not work when wireless data is turned off."</em> and is generated by iOS, not by VoxelVision. The wording is system-hardcoded and cannot be customized by the app.</p>
-        <p>The popup appears only on cellular iPhone models on the first launch after installation. Wi-Fi-only iPads and Apple Vision Pro do not show it.</p>
-        <p><strong>Why it appears:</strong> on launch, VoxelVision initializes the StoreKit transaction listener (<code>Transaction.updates</code>) to support In-App Purchase restoration and external transaction events from Apple. This establishes a connection to Apple's App Store infrastructure, which iOS treats as wireless data usage on cellular devices and surfaces the system-level permission popup.</p>
-        <p><strong>What VoxelVision sends and receives:</strong> only Apple StoreKit traffic — In-App Purchase loading, Restore Purchases, and StoreKit external-transaction events. No medical imaging, patient information, scan data, usage statistics, or crash logs are ever transmitted by VoxelVision.</p>
-        <p>You may select any option in the popup; all medical imaging functionality remains fully available regardless of your choice. You can adjust the setting at any time in <em>Settings &gt; Cellular &gt; VoxelVision</em>.</p>
+  <!-- HERO BAND -->
+  <header style="position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.06);">
+    <div style="position:absolute; inset:0; background:radial-gradient(70% 120% at 82% -10%, rgba(41,121,255,.22), transparent 60%), radial-gradient(50% 90% at 10% 100%, rgba(26,35,126,.32), transparent 60%);"></div>
+    <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(120,170,255,.12) 1px, transparent 1.5px); background-size:32px 32px; opacity:.5; mask-image:linear-gradient(180deg,#000,transparent);"></div>
+    <div style="position:relative; max-width:860px; margin:0 auto; padding:78px 40px 56px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#9dc2ff; margin-bottom:22px;">VoxelVision · Help</div>
+      <h1 style="font-family:'Sora',sans-serif; font-size:clamp(34px,8vw,56px); line-height:1.02; letter-spacing:-.03em; font-weight:700; margin:0 0 16px; color:#f4f7fc;">Support &amp; FAQ</h1>
+      <p style="font-size:18px; color:#9fb0c8; margin:0;">AR Medical Imaging for Apple Vision Pro, iPad, and iPhone</p>
     </div>
+  </header>
 
-    <div class="faq-item">
-        <h3>I bought the Oblique Plane Viewer on Apple Vision Pro. Do I need to buy it again on iPad or iPhone?</h3>
-        <p>No. Oblique Plane Viewer is unlocked across Apple Vision Pro, iPad, and iPhone for any device signed into the same Apple ID — including parental-approval flows. After installing VoxelVision on a new device, tap "Restore Purchases" on the Settings page to retrieve your existing unlock.</p>
-    </div>
+  <main class="vvbody" style="max-width:860px; margin:0 auto; padding:64px 40px 90px;">
 
-    <div class="faq-item">
-        <h3>Which third-party cloud providers are supported when importing from the Files app?</h3>
-        <p>VoxelVision uses Apple's Files app for all import operations, so support for third-party cloud providers depends on whether each provider's iOS app implements the Files extension for folder selection.</p>
-        <p><strong>Tested and working:</strong> Dropbox.</p>
-        <p><strong>Tested and not working:</strong> OneDrive, Google Drive — these providers' iOS apps do not currently expose their folders to the Files folder picker, so they may not appear available in VoxelVision's import flow even when installed.</p>
-        <p>If your DICOM data is stored on an unsupported provider, please use that provider's offline-file feature to make the folder available locally first, or move the data to iCloud Drive, your device's local storage, external drives, or network shares — all of which VoxelVision supports directly through the Files app.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>iPad pauses briefly the first time I rotate the screen in immersive mode — is something broken?</h3>
-        <p>No. When you first enter the Oblique Plane Viewer (immersive mode) on iPad and rotate the screen, iOS may pause briefly (typically 5–10 seconds) while initializing the AR camera pipeline and related sensors for the first time. This is normal iOS behavior, not an app bug. The app does not crash and no data is lost. After this initial cold-start, subsequent rotations and immersive sessions are smooth. The pause only occurs on iPad; iPhone does not exhibit noticeable delay. Non-immersive views (case list, slice browsing) are unaffected.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Does VoxelVision run on Mac?</h3>
-        <p>Partially. When the iOS app runs on an Apple Silicon Mac (via "Designed for iPad"), you can import DICOM folders and view CT, MR, PET, and NM — as well as NIfTI and NRRD volumes — in 2D — the pre-installed sample datasets work as well. This covers the basic viewing workflow. And just as on iPad, you can open multiple windows — press Command-N on Mac — to work with several cases side by side, or keep a case open alongside the Help or About page.</p>
-        <p>The Oblique Plane Viewer — the app's core spatial experience — is not available on Mac. It relies on a moving viewpoint anchored to a mobile device with a rear camera (or, on Apple Vision Pro, the head-mounted spatial coordinate system), and a Mac is neither. For that reason the Oblique Plane Viewer and its in-app purchase are not offered when the app runs on Mac. Mark &amp; Measure, which lives inside the Oblique Plane Viewer, is likewise unavailable on Mac, and its color settings are hidden there.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>What file formats does VoxelVision support?</h3>
-        <p>VoxelVision imports DICOM folders containing CT, MR, PET, or NM series, as well as single-file NIfTI (.nii, .nii.gz) and NRRD (.nrrd) volumes. The app converts imported data to an optimized internal format for spatial viewing. Five built-in sample datasets — CT, MR, PET, NIfTI, and NRRD — are included for first-time exploration.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Is my medical imaging data uploaded anywhere?</h3>
-        <p>No. All imaging data is processed and stored entirely on your device. VoxelVision operates completely offline with no network communication. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>How do I import files?</h3>
-        <p>Tap the "Import Image" button on the main screen, then select a folder containing DICOM files. VoxelVision will scan the folder, let you choose which series to import, and convert the data for spatial viewing. For NIfTI or NRRD, select the single file directly — no folder needed.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>My DICOM import failed. What should I do?</h3>
-        <p>Ensure the selected folder contains valid DICOM Part 10 files in a supported modality (CT, MR, PET, or NM). You can select either a single series folder or a parent folder containing multiple studies — VoxelVision will scan recursively and present all detected series for selection. If the issue persists, export your runtime logs from the "Logs &amp; Feedback" page and contact <a href="mailto:voxelvisionsupport@gmail.com">voxelvisionsupport@gmail.com</a>.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>What is the Oblique Plane Viewer?</h3>
-        <p>The Oblique Plane Viewer is an immersive mode feature that lets you explore medical images as a 3D volume in your physical space, with interactive cutting planes controlled by spatial gestures on Apple Vision Pro and touch gestures on iPad and iPhone. It is available as an in-app purchase.</p>
+    <!-- CONTACT -->
+    <div style="border:1px solid rgba(41,121,255,.28); background:radial-gradient(120% 140% at 100% 0%, rgba(41,121,255,.14), transparent 55%), rgba(41,121,255,.04); border-radius:16px; padding:30px 30px; margin-bottom:56px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#9dc2ff; margin-bottom:14px;">Contact</div>
+      <p style="margin:0 0 12px; font-size:17px; line-height:1.6; color:#c2cee0;">For bug reports, feature requests, or any questions:</p>
+      <p style="margin:0 0 16px; font-size:20px; font-weight:600; color:#fff;">Email: <a href="mailto:voxelvisionsupport@gmail.com" style="color:#4DA3FF;">voxelvisionsupport@gmail.com</a></p>
+      <p style="margin:0; font-size:15px; line-height:1.6; color:#9fb0c8;">When reporting an issue, including the following information helps resolve it faster: a description of what happened, the steps to reproduce it, and your app version and OS version. For your convenience, tap "Email with Logs" on the in-app "Logs &amp; Feedback" page — it opens a pre-filled email with the runtime log attached. The logs do not contain any personal or medical data.</p>
     </div>
 
-    <div class="faq-item">
-        <h3>I already purchased the Oblique Plane Viewer. Does Mark &amp; Measure cost extra?</h3>
-        <p>No. Mark &amp; Measure is part of the Oblique Plane Viewer functionality and is included in the existing in-app purchase. If you already own the Oblique Plane Viewer, Mark &amp; Measure is available in version 1.2.0 at no additional cost.</p>
-    </div>
+    <h2 style="font-family:'Sora',sans-serif; font-size:30px; font-weight:700; letter-spacing:-.02em; color:#f2f5fa; margin:0 0 24px;">Frequently Asked Questions</h2>
 
-    <div class="faq-item">
-        <h3>Can I use the measurements for clinical decisions?</h3>
-        <p>No. Measurements are computed on-device from the imported volume's own spatial metadata and are provided for personal exploration, education, and research purposes only. VoxelVision is not a certified medical device, and its measurements must not be used for clinical diagnosis or treatment decisions.</p>
-    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.08);">
 
-    <div class="faq-item">
-        <h3>Where are my markers and measurements stored?</h3>
-        <p>On your device, alongside the case they belong to. Nothing is uploaded. If you export measurements as a CSV file, the export is initiated by you and saved to the Files app.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>What about the sample images?</h3>
-        <p>VoxelVision includes five pre-installed sample datasets — CT (<a href="https://www.cancerimagingarchive.net/collection/lidc-idri/">LIDC-IDRI</a>, CC BY 3.0), MR (<a href="https://www.cancerimagingarchive.net/collection/upenn-gbm/">UPENN-GBM</a>, CC BY 4.0), PET (<a href="https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/">ACRIN-NSCLC-FDG-PET</a>, CC BY 3.0), NIfTI (<a href="https://openneuro.org/datasets/ds000030/">OpenNeuro ds000030</a>, CC0 1.0), and NRRD (<a href="https://www.slicer.org/">3D Slicer MRHead</a>, donated for unrestricted use) — so you can explore the app immediately without importing your own data. You can keep them, or delete them at any time.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>How do I restore my in-app purchase after reinstalling?</h3>
-        <p>Go to the Settings page and tap "Restore Purchases". Your Oblique Plane Viewer unlock will be restored automatically.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>How do I reload the sample images after deleting them?</h3>
-        <p>Delete the app and reinstall from the App Store. The sample images (all five) will be automatically restored.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Is VoxelVision intended for clinical diagnosis?</h3>
-        <p>No. VoxelVision is designed for personal exploration, education, and research purposes only. It is not a certified medical device and should not be used for clinical diagnosis.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Which languages are supported?</h3>
-        <p>VoxelVision supports 15 languages: English, Simplified Chinese, Traditional Chinese, Japanese, Korean, French, German, Spanish, Italian, Brazilian Portuguese, European Portuguese, Arabic, Dutch, Turkish, and Russian.</p>
-    </div>
-
-    <footer>
-        <div class="footer-nav">
-            <a href="index.html">VoxelVision</a> ·
-            <a href="privacy.html">Privacy Policy</a> ·
-            <span class="current">Support &amp; FAQ</span> ·
-            <a href="acknowledgements.html">Acknowledgements</a> ·
-            <a href="accessibility.html">Accessibility</a>
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Why does iPhone show a "wireless data" permission popup on first launch if VoxelVision processes images locally?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0 0 14px;">The popup reads <em style="font-style:italic; color:#c2cee0;">"Allow 'VoxelVision' to use wireless data? Some functionality may not work when wireless data is turned off."</em> and is generated by iOS, not by VoxelVision. The wording is system-hardcoded and cannot be customized by the app.</p>
+          <p style="margin:0 0 14px;">The popup appears only on cellular iPhone models on the first launch after installation. Wi-Fi-only iPads and Apple Vision Pro do not show it.</p>
+          <p style="margin:0 0 14px;"><strong style="color:#dbe6f7; font-weight:600;">Why it appears:</strong> on launch, VoxelVision initializes the StoreKit transaction listener (<code style="font-family:'JetBrains Mono',monospace; font-size:14px; background:rgba(255,255,255,.06); padding:1px 6px; border-radius:5px;">Transaction.updates</code>) to support In-App Purchase restoration and external transaction events from Apple. This establishes a connection to Apple's App Store infrastructure, which iOS treats as wireless data usage on cellular devices and surfaces the system-level permission popup.</p>
+          <p style="margin:0 0 14px;"><strong style="color:#dbe6f7; font-weight:600;">What VoxelVision sends and receives:</strong> only Apple StoreKit traffic — In-App Purchase loading, Restore Purchases, and StoreKit external-transaction events. No medical imaging, patient information, scan data, usage statistics, or crash logs are ever transmitted by VoxelVision.</p>
+          <p style="margin:0;">You may select any option in the popup; all medical imaging functionality remains fully available regardless of your choice. You can adjust the setting at any time in <em style="font-style:italic; color:#c2cee0;">Settings &gt; Cellular &gt; VoxelVision</em>.</p>
         </div>
-        <p>© 2026 <a href="https://mingweicui.github.io/">Mingwei Cui</a>. All rights reserved.</p>
-    </footer>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>I bought the Oblique Plane Viewer on Apple Vision Pro. Do I need to buy it again on iPad or iPhone?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">No. Oblique Plane Viewer is unlocked across Apple Vision Pro, iPad, and iPhone for any device signed into the same Apple ID — including parental-approval flows. After installing VoxelVision on a new device, tap "Restore Purchases" on the Settings page to retrieve your existing unlock.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Which third-party cloud providers are supported when importing from the Files app?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0 0 14px;">VoxelVision uses Apple's Files app for all import operations, so support for third-party cloud providers depends on whether each provider's iOS app implements the Files extension for folder selection.</p>
+          <p style="margin:0 0 14px;"><strong style="color:#dbe6f7; font-weight:600;">Tested and working:</strong> Dropbox.</p>
+          <p style="margin:0 0 14px;"><strong style="color:#dbe6f7; font-weight:600;">Tested and not working:</strong> OneDrive, Google Drive — these providers' iOS apps do not currently expose their folders to the Files folder picker, so they may not appear available in VoxelVision's import flow even when installed.</p>
+          <p style="margin:0;">If your DICOM data is stored on an unsupported provider, please use that provider's offline-file feature to make the folder available locally first, or move the data to iCloud Drive, your device's local storage, external drives, or network shares — all of which VoxelVision supports directly through the Files app.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>iPad pauses briefly the first time I rotate the screen in immersive mode — is something broken?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">No. When you first enter the Oblique Plane Viewer (immersive mode) on iPad and rotate the screen, iOS may pause briefly (typically 5–10 seconds) while initializing the AR camera pipeline and related sensors for the first time. This is normal iOS behavior, not an app bug. The app does not crash and no data is lost. After this initial cold-start, subsequent rotations and immersive sessions are smooth. The pause only occurs on iPad; iPhone does not exhibit noticeable delay. Non-immersive views (case list, slice browsing) are unaffected.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Does VoxelVision run on Mac?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0 0 14px;">Partially. When the iOS app runs on an Apple Silicon Mac (via "Designed for iPad"), you can import DICOM folders and view CT, MR, PET, and NM — as well as NIfTI and NRRD volumes — in 2D — the pre-installed sample datasets work as well. This covers the basic viewing workflow. And just as on iPad, you can open multiple windows — press Command-N on Mac — to work with several cases side by side, or keep a case open alongside the Help or About page.</p>
+          <p style="margin:0;">The Oblique Plane Viewer — the app's core spatial experience — is not available on Mac. It relies on a moving viewpoint anchored to a mobile device with a rear camera (or, on Apple Vision Pro, the head-mounted spatial coordinate system), and a Mac is neither. For that reason the Oblique Plane Viewer and its in-app purchase are not offered when the app runs on Mac. Mark &amp; Measure, which lives inside the Oblique Plane Viewer, is likewise unavailable on Mac, and its color settings are hidden there.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>What file formats does VoxelVision support?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">VoxelVision imports DICOM folders containing CT, MR, PET, or NM series, as well as single-file NIfTI (.nii, .nii.gz) and NRRD (.nrrd) volumes. The app converts imported data to an optimized internal format for spatial viewing. Five built-in sample datasets — CT, MR, PET, NIfTI, and NRRD — are included for first-time exploration.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Is my medical imaging data uploaded anywhere?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">No. All imaging data is processed and stored entirely on your device. VoxelVision operates completely offline with no network communication. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>How do I import files?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">Tap the "Import Image" button on the main screen, then select a folder containing DICOM files. VoxelVision will scan the folder, let you choose which series to import, and convert the data for spatial viewing. For NIfTI or NRRD, select the single file directly — no folder needed.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>My DICOM import failed. What should I do?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">Ensure the selected folder contains valid DICOM Part 10 files in a supported modality (CT, MR, PET, or NM). You can select either a single series folder or a parent folder containing multiple studies — VoxelVision will scan recursively and present all detected series for selection. If the issue persists, export your runtime logs from the "Logs &amp; Feedback" page and contact <a href="mailto:voxelvisionsupport@gmail.com">voxelvisionsupport@gmail.com</a>.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>What is the Oblique Plane Viewer?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">The Oblique Plane Viewer is an immersive mode feature that lets you explore medical images as a 3D volume in your physical space, with interactive cutting planes controlled by spatial gestures on Apple Vision Pro and touch gestures on iPad and iPhone. It is available as an in-app purchase.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>I already purchased the Oblique Plane Viewer. Does Mark &amp; Measure cost extra?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">No. Mark &amp; Measure is part of the Oblique Plane Viewer functionality and is included in the existing in-app purchase. If you already own the Oblique Plane Viewer, Mark &amp; Measure is available in version 1.2.0 at no additional cost.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Can I use the measurements for clinical decisions?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">No. Measurements are computed on-device from the imported volume's own spatial metadata and are provided for personal exploration, education, and research purposes only. VoxelVision is not a certified medical device, and its measurements must not be used for clinical diagnosis or treatment decisions.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Where are my markers and measurements stored?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">On your device, alongside the case they belong to. Nothing is uploaded. If you export measurements as a CSV file, the export is initiated by you and saved to the Files app.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>What about the sample images?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">VoxelVision includes five pre-installed sample datasets — CT (<a href="https://www.cancerimagingarchive.net/collection/lidc-idri/">LIDC-IDRI</a>, CC BY 3.0), MR (<a href="https://www.cancerimagingarchive.net/collection/upenn-gbm/">UPENN-GBM</a>, CC BY 4.0), PET (<a href="https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/">ACRIN-NSCLC-FDG-PET</a>, CC BY 3.0), NIfTI (<a href="https://openneuro.org/datasets/ds000030/">OpenNeuro ds000030</a>, CC0 1.0), and NRRD (<a href="https://www.slicer.org/">3D Slicer MRHead</a>, donated for unrestricted use) — so you can explore the app immediately without importing your own data. You can keep them, or delete them at any time.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>How do I restore my in-app purchase after reinstalling?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">Go to the Settings page and tap "Restore Purchases". Your Oblique Plane Viewer unlock will be restored automatically.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>How do I reload the sample images after deleting them?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">Delete the app and reinstall from the App Store. The sample images (all five) will be automatically restored.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Is VoxelVision intended for clinical diagnosis?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">No. VoxelVision is designed for personal exploration, education, and research purposes only. It is not a certified medical device and should not be used for clinical diagnosis.</p>
+        </div>
+      </details>
+
+      <details class="vvfaq" style="border-bottom:1px solid rgba(255,255,255,.08);">
+        <summary style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px; padding:22px 0; font-family:'Sora',sans-serif; font-size:18px; font-weight:500; color:#eef1f6;">
+          <span>Which languages are supported?</span>
+          <span class="vvplus" style="flex:0 0 auto; font-size:24px; line-height:1; color:#4DA3FF; margin-top:2px;">+</span>
+        </summary>
+        <div style="padding:0 0 26px; font-size:16px; line-height:1.68; color:#a9b8cc;">
+          <p style="margin:0;">VoxelVision supports 15 languages: English, Simplified Chinese, Traditional Chinese, Japanese, Korean, French, German, Spanish, Italian, Brazilian Portuguese, European Portuguese, Arabic, Dutch, Turkish, and Russian.</p>
+        </div>
+      </details>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid rgba(255,255,255,.07); padding:44px 40px; background:#04060b;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+      <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
+        <img src="assets/icon.png" alt="VoxelVision" style="width:26px; height:26px; border-radius:7px; display:block;">
+        <span style="font-family:'Sora',sans-serif; font-weight:600; font-size:15px;">VoxelVision</span>
+      </a>
+      <div style="display:flex; gap:26px; font-size:14px; color:#8ba0bd; flex-wrap:wrap;">
+        <a href="index.html" style="color:#8ba0bd;">Home</a>
+        <a href="privacy.html" style="color:#8ba0bd;">Privacy Policy</a>
+        <a href="support.html" style="color:#eef1f6;">Support &amp; FAQ</a>
+        <a href="acknowledgements.html" style="color:#8ba0bd;">Acknowledgements</a>
+        <a href="accessibility.html" style="color:#8ba0bd;">Accessibility</a>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#5f6f85;">© 2026 <a href="https://mingweicui.github.io/" style="color:#7f8aa0;">Mingwei Cui</a></span>
+    </div>
+  </footer>
+
 </div>
+</x-dc>
 </body>
 </html>
