@@ -3,6 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" sizes="128x128" href="assets/icon_128.png">
+<style>
+  /* Fallback for browsers that force-darken page colors (e.g. Edge mobile website dark mode):
+     gradient-clipped text becomes plain light text instead of inheriting a darkened gradient. */
+  html.no-gtx .gtx { background-image:none!important; -webkit-text-fill-color:currentColor!important; color:var(--gtx-fb,#ffffff)!important; }
+</style>
+<script>
+(function(){
+  var done=false,t=null;
+  function probe(){
+    if(done||!document.body)return;
+    var e=document.createElement('div');
+    e.style.cssText='position:absolute;width:2px;height:2px;overflow:hidden;pointer-events:none;background-color:#ffffff;';
+    document.body.appendChild(e);
+    var c=getComputedStyle(e).backgroundColor;
+    document.body.removeChild(e);
+    if(c!=='rgb(255, 255, 255)'&&c!=='rgba(255, 255, 255, 1)'){done=true;document.documentElement.classList.add('no-gtx');}
+  }
+  function schedule(){clearTimeout(t);t=setTimeout(probe,120);}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',probe);}else{probe();}
+  setTimeout(probe,600);setTimeout(probe,2500);
+  new MutationObserver(schedule).observe(document.head,{childList:true,subtree:true});
+})();
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -42,7 +67,7 @@
   <!-- NAV -->
   <nav class="vvnav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(5,7,13,.72); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.06);">
     <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
-      <img src="assets/icon.png" alt="VoxelVision" style="width:30px; height:30px; border-radius:9px; display:block;">
+      <img src="assets/icon_128.png" alt="VoxelVision" style="width:30px; height:30px; border-radius:9px; display:block;">
       <span style="font-family:'Sora',sans-serif; font-weight:700; font-size:18px; letter-spacing:-.01em;">VoxelVision</span>
     </a>
     <div class="vvlinks" style="display:flex; align-items:center; gap:28px; font-size:14.5px; color:#9fb0c8;">
@@ -72,7 +97,7 @@
     <!-- CT -->
     <div style="border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:32px 30px; margin-bottom:22px; background:rgba(255,255,255,.02);">
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:22px;">
-        <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">CT</span>
+        <span class="gtx" style="--gtx-fb:#3E8EF7; font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">CT</span>
         <span style="font-size:17px; font-weight:600; color:#eef1f6;">Sample — <a href="https://www.cancerimagingarchive.net/collection/lidc-idri/">LIDC-IDRI</a></span>
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; color:#9fb0c8;"><a href="https://creativecommons.org/licenses/by/3.0/" style="color:#9fb0c8;">CC BY 3.0</a></span>
       </div>
@@ -87,7 +112,7 @@
     <!-- MR -->
     <div style="border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:32px 30px; margin-bottom:22px; background:rgba(255,255,255,.02);">
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:22px;">
-        <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">MR</span>
+        <span class="gtx" style="--gtx-fb:#3E8EF7; font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">MR</span>
         <span style="font-size:17px; font-weight:600; color:#eef1f6;">Sample — <a href="https://www.cancerimagingarchive.net/collection/upenn-gbm/">UPENN-GBM</a></span>
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; color:#9fb0c8;"><a href="https://creativecommons.org/licenses/by/4.0/" style="color:#9fb0c8;">CC BY 4.0</a></span>
       </div>
@@ -102,7 +127,7 @@
     <!-- PET -->
     <div style="border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:32px 30px; margin-bottom:22px; background:rgba(255,255,255,.02);">
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:22px; flex-wrap:wrap;">
-        <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">PET</span>
+        <span class="gtx" style="--gtx-fb:#3E8EF7; font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">PET</span>
         <span style="font-size:17px; font-weight:600; color:#eef1f6;">Sample — <a href="https://www.cancerimagingarchive.net/collection/acrin-nsclc-fdg-pet/">ACRIN-NSCLC-FDG-PET</a></span>
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; color:#9fb0c8;"><a href="https://creativecommons.org/licenses/by/3.0/" style="color:#9fb0c8;">CC BY 3.0</a></span>
       </div>
@@ -121,7 +146,7 @@
     <!-- NIfTI -->
     <div style="border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:32px 30px; margin-bottom:22px; background:rgba(255,255,255,.02);">
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:22px; flex-wrap:wrap;">
-        <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">NIfTI</span>
+        <span class="gtx" style="--gtx-fb:#3E8EF7; font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">NIfTI</span>
         <span style="font-size:17px; font-weight:600; color:#eef1f6;">Sample — <a href="https://openneuro.org/datasets/ds000030/">OpenNeuro ds000030</a></span>
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; color:#9fb0c8;"><a href="https://creativecommons.org/publicdomain/zero/1.0/" style="color:#9fb0c8;">CC0 1.0</a></span>
       </div>
@@ -136,7 +161,7 @@
     <!-- NRRD -->
     <div style="border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:32px 30px; margin-bottom:0; background:rgba(255,255,255,.02);">
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:22px; flex-wrap:wrap;">
-        <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">NRRD</span>
+        <span class="gtx" style="--gtx-fb:#3E8EF7; font-family:'Sora',sans-serif; font-size:22px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">NRRD</span>
         <span style="font-size:17px; font-weight:600; color:#eef1f6;">Sample — <a href="https://www.slicer.org/">3D Slicer MRHead</a></span>
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; color:#9fb0c8;">Donated for unrestricted use</span>
       </div>
@@ -154,7 +179,7 @@
 
     <div style="border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:32px 30px; margin-bottom:22px; background:rgba(255,255,255,.02);">
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:22px; flex-wrap:wrap;">
-        <span style="font-family:'Sora',sans-serif; font-size:20px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">CatPhan504</span>
+        <span class="gtx" style="--gtx-fb:#3E8EF7; font-family:'Sora',sans-serif; font-size:20px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">CatPhan504</span>
         <span style="font-size:17px; font-weight:600; color:#eef1f6;">CTP404 module — ideal-cue reference phantom</span>
       </div>
       <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#7f8aa0; margin-bottom:8px;">Citation</div>
@@ -165,7 +190,7 @@
 
     <div style="border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:32px 30px; margin-bottom:0; background:rgba(255,255,255,.02);">
       <div style="display:flex; align-items:center; gap:12px; margin-bottom:22px; flex-wrap:wrap;">
-        <span style="font-family:'Sora',sans-serif; font-size:20px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">MCVV</span>
+        <span class="gtx" style="--gtx-fb:#3E8EF7; font-family:'Sora',sans-serif; font-size:20px; font-weight:800; letter-spacing:-.02em; background:linear-gradient(100deg,#4DA3FF,#2979FF); -webkit-background-clip:text; background-clip:text; color:transparent;">MCVV</span>
         <span style="font-size:17px; font-weight:600; color:#eef1f6;">Author-built phantom datasets</span>
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; color:#9fb0c8;"><a href="https://creativecommons.org/licenses/by/4.0/" style="color:#9fb0c8;">CC BY 4.0</a></span>
       </div>
@@ -179,7 +204,7 @@
   <footer style="border-top:1px solid rgba(255,255,255,.07); padding:44px 40px; background:#04060b;">
     <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
       <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
-        <img src="assets/icon.png" alt="VoxelVision" style="width:26px; height:26px; border-radius:7px; display:block;">
+        <img src="assets/icon_128.png" alt="VoxelVision" style="width:26px; height:26px; border-radius:7px; display:block;">
         <span style="font-family:'Sora',sans-serif; font-weight:600; font-size:15px;">VoxelVision</span>
       </a>
       <div style="display:flex; gap:26px; font-size:14px; color:#8ba0bd; flex-wrap:wrap;">
