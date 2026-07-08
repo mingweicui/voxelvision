@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -13,8 +14,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="VoxelVision — AR Medical Imaging for Apple Vision Pro, iPad, and iPhone">
 <meta property="og:description" content="View & measure MPR in 3D space. CT, MR, PET, and NM via DICOM, plus NIfTI and NRRD volumes.">
-<meta property="og:image" content="https://mingweicui.github.io/voxelvision/assets/icon.png">
-<meta property="og:url" content="https://mingweicui.github.io/voxelvision/">
+<meta property="og:image" content="https://voxelvision.app/assets/icon.png">
+<meta property="og:url" content="https://voxelvision.app/">
 <meta name="twitter:card" content="summary">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
-  html, body { margin:0; padding:0; background:#05070d; }
+  html, body { margin:0; padding:0; background:#05070d; color-scheme:dark; }
   a { text-decoration:none; }
   @keyframes vvfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
   @keyframes vvpulse { 0%,100% { opacity:.4; transform:scale(1); } 50% { opacity:1; transform:scale(1.25); } }
@@ -68,7 +69,7 @@
         <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#9dc2ff; border:1px solid rgba(157,194,255,.28); border-radius:999px; padding:7px 15px; margin-bottom:30px;">
           <span style="width:6px; height:6px; border-radius:50%; background:#4DA3FF; box-shadow:0 0 10px #4DA3FF; animation:vvpulse 2.4s ease-in-out infinite;"></span>Spatial medical imaging · CT / MR / PET / NM
         </div>
-        <h1 style="font-family:'Sora',sans-serif; font-size:clamp(40px,10vw,88px); line-height:.96; letter-spacing:-.04em; font-weight:800; margin:0 0 26px; background:linear-gradient(178deg,#ffffff 30%,#b9ccf0); -webkit-background-clip:text; background-clip:text; color:transparent;">Step inside<br>the scan.</h1>
+        <h1 style="font-family:'Sora',sans-serif; font-size:clamp(40px,10vw,88px); line-height:.96; letter-spacing:-.04em; font-weight:800; margin:0 0 26px; color:#ffffff; background:linear-gradient(178deg,#ffffff 30%,#b9ccf0); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Step inside<br>the scan.</h1>
         <p style="font-size:22px; line-height:1.5; color:#c2cee0; max-width:560px; margin:0 0 18px; font-weight:300;">A native spatial viewer for CT, MR, PET, and NM studies — plus NIfTI and NRRD volumes.</p>
         <p style="font-size:22px; line-height:1.5; color:#c2cee0; max-width:560px; margin:0 0 40px; font-weight:300;">Born on Apple Vision Pro. Now on iPad and iPhone.</p>
         <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
@@ -283,3 +284,4 @@
 </x-dc>
 </body>
 </html>
+
