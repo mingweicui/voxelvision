@@ -1,67 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<link rel="icon" type="image/png" sizes="128x128" href="assets/icon_128.png">
-<link rel="canonical" href="https://voxelvision.app/privacy.html">
-<script src="./support.js"></script>
-<script src="./ct.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
 <title>VoxelVision — Privacy Policy</title>
 <meta name="description" content="Privacy policy for VoxelVision — an AR medical imaging app that processes all data on-device. No collection, no transmission, no analytics.">
+<link rel="canonical" href="https://voxelvision.app/privacy.html">
+<link rel="icon" type="image/png" sizes="128x128" href="assets/icon_128.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="VoxelVision — Privacy Policy">
 <meta property="og:description" content="Privacy policy for VoxelVision — an AR medical imaging app that processes all data on-device. No collection, no transmission, no analytics.">
-<meta property="og:image" content="https://voxelvision.app/assets/icon.png">
 <meta property="og:url" content="https://voxelvision.app/privacy.html">
-<meta name="twitter:card" content="summary">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing:border-box; }
-  html, body { margin:0; padding:0; background:#05070d; }
-  a { text-decoration:none; }
-  .vvbody a { color:#4DA3FF; }
-  .vvbody a:hover { text-decoration:underline; }
-
-  @media (max-width:860px){
-    .vvnav{padding:14px 18px!important;}
-    .vvlinks{gap:12px 16px!important;font-size:13px!important;flex-wrap:wrap!important;justify-content:flex-end!important;}
+<meta property="og:image" content="https://voxelvision.app/assets/og-card.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Two MR brain slices displayed side by side in a room, viewed in VoxelVision.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/Sora-700-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/HankenGrotesk-400-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/JetBrainsMono-400-latin.woff2">
+<link rel="stylesheet" href="assets/site.css">
+<script>
+/* Detect browsers that force-darken page colours, so gradient-clipped text can
+   fall back to a plain light fill instead of a darkened gradient. */
+(function(){
+  var done=false,t=null;
+  function probe(){
+    if(done||!document.body)return;
+    var e=document.createElement('div');
+    e.style.cssText='position:absolute;width:2px;height:2px;overflow:hidden;pointer-events:none;background-color:#ffffff;';
+    document.body.appendChild(e);
+    var c=getComputedStyle(e).backgroundColor;
+    document.body.removeChild(e);
+    if(c!=='rgb(255, 255, 255)'&&c!=='rgba(255, 255, 255, 1)'){done=true;document.documentElement.classList.add('no-gtx');}
   }
-  @media (max-width:720px){
-    .vvplat{grid-template-columns:1fr!important;}
-  }
-</style>
-</helmet>
-
+  function schedule(){clearTimeout(t);t=setTimeout(probe,120);}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',probe);}else{probe();}
+  setTimeout(probe,600);setTimeout(probe,2500);
+  new MutationObserver(schedule).observe(document.head,{childList:true,subtree:true});
+})();
+</script>
+<script src="./ct.js"></script>
+<script defer src="assets/site.js"></script>
+</head>
+<body>
 <div style="background:#05070d; color:#eef1f6; font-family:'Hanken Grotesk',sans-serif; -webkit-font-smoothing:antialiased;">
 
   <!-- NAV -->
-  <nav class="vvnav" style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(5,7,13,.72); backdrop-filter:blur(18px); border-bottom:1px solid rgba(255,255,255,.06);">
+  <a class="vvskip" href="#main">Skip to main content</a>
+
+  <nav class="vvnav vvnav-sub" aria-label="Primary">
+    <span class="vvnav-frost" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
-      <img src="assets/icon_128.png" alt="VoxelVision" style="width:30px; height:30px; border-radius:9px; display:block;">
+      <img width="128" height="128" src="assets/icon_128.png" alt="VoxelVision" style="width:30px; height:30px; border-radius:9px; display:block;">
       <span style="font-family:'Sora',sans-serif; font-weight:700; font-size:18px; letter-spacing:-.01em;">VoxelVision</span>
     </a>
-    <div class="vvlinks" style="display:flex; align-items:center; gap:28px; font-size:14.5px; color:#9fb0c8;">
-      <a href="index.html" style="color:#9fb0c8;">Home</a>
-      <a href="support.html" style="color:#9fb0c8;">Support</a>
-      <a href="privacy.html" style="color:#eef1f6;">Privacy</a>
-      <a class="vvcta" href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&ct=landing&mt=8" style="color:#fff; background:linear-gradient(100deg,#2979FF,#1A237E); padding:9px 18px; border-radius:999px; font-weight:600; font-size:14px; box-shadow:0 8px 24px -8px rgba(41,121,255,.7);">Download</a>
+    <div class="vvlinks" style="display:flex; align-items:center; gap:28px; font-size:14.5px;">
+      <details class="vvmenu">
+        <summary>Menu</summary>
+        <nav class="vvmenu-panel vvglass" aria-label="More pages">
+        <a class="vvm-b" href="index.html">Home</a>
+        <a class="vvm-b" href="privacy.html">Privacy</a>
+        <a class="vvm-b" href="support.html">Support</a>
+        </nav>
+      </details>
+      <a class="vvnav-b" href="index.html">Home</a>
+      <a class="vvnav-b" href="privacy.html" style="color:#eef1f6;">Privacy</a>
+      <a class="vvnav-b" href="support.html">Support</a>
+      <a class="vvcta" href="https://apps.apple.com/app/voxelvision/id6762214194?pt=127449969&ct=landing&mt=8" style="color:#fff; background:linear-gradient(100deg,#2979FF,#1A237E); padding:9px 18px; border-radius:999px; font-weight:600; font-size:14px; box-shadow:0 8px 24px -8px rgba(41,121,255,.7);" aria-label="Download VoxelVision on the App Store"><svg class="vvcta-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M7.5 10l4.5 4.5 4.5-4.5"/><path d="M4.5 20h15"/></svg><span class="vvcta-txt">Download</span></a>
     </div>
   </nav>
 
   <!-- HERO BAND -->
-  <header style="position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.06);">
+  <header class="vvsubhead" style="position:relative; overflow:hidden; border-bottom:1px solid var(--vv-rule);">
     <div style="position:absolute; inset:0; background:radial-gradient(70% 120% at 82% -10%, rgba(41,121,255,.22), transparent 60%), radial-gradient(50% 90% at 10% 100%, rgba(26,35,126,.32), transparent 60%);"></div>
     <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(120,170,255,.12) 1px, transparent 1.5px); background-size:32px 32px; opacity:.5; mask-image:linear-gradient(180deg,#000,transparent);"></div>
-    <div style="position:relative; max-width:860px; margin:0 auto; padding:78px 40px 56px;">
+    <div class="vvsubhead-in" style="position:relative; max-width:var(--vv-max); margin:0 auto; padding:78px var(--vv-gut) 56px;">
       <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#9dc2ff; margin-bottom:22px;">VoxelVision · Legal</div>
       <h1 style="font-family:'Sora',sans-serif; font-size:clamp(34px,8vw,56px); line-height:1.02; letter-spacing:-.03em; font-weight:700; margin:0 0 16px; color:#f4f7fc;">Privacy Policy</h1>
       <p style="font-size:18px; color:#9fb0c8; margin:0;">AR Medical Imaging for Apple Vision Pro, iPad, and iPhone</p>
@@ -69,16 +85,37 @@
   </header>
 
   <!-- CONTENT -->
-  <main class="vvbody" style="max-width:860px; margin:0 auto; padding:64px 40px 90px; font-size:17px; line-height:1.72; color:#b3c0d2;">
+  <main id="main" class="vvbody" style="max-width:var(--vv-max); margin:0 auto; padding:0 var(--vv-gut); font-size:17px; line-height:1.72; color:#b3c0d2;">    <details class="vvtoc" open>
+      <summary aria-label="On this page"><svg class="vvtoc-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h11"/><path d="M4 18h7"/></svg><span class="vvtoc-txt">On this page</span></summary>
+      <nav aria-label="On this page">
+        <div class="vvtoc-label">On this page</div>
+        <div class="vvtoc-list">
+        <a href="#overview">Overview</a>
+        <a href="#compliance-statement">Compliance Statement</a>
+        <a href="#subject-data-protection">Subject Data Protection</a>
+        <a href="#user-data-protection">User Data Protection</a>
+        <a href="#runtime-logs">Runtime Logs</a>
+        <a href="#in-app-purchases">In-App Purchases</a>
+        <a href="#world-sensing">World Sensing</a>
+        <a href="#third-party-services">Third-Party Services</a>
+        <a href="#sample-data-acknowledgement">Sample Data Acknowledgement</a>
+        <a href="#data-collection">Data Collection</a>
+        <a href="#changes-to-this-policy">Changes to This Policy</a>
+        <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </details>
 
-    <div style="border:1px solid rgba(41,121,255,.28); background:radial-gradient(120% 140% at 100% 0%, rgba(41,121,255,.14), transparent 55%), rgba(41,121,255,.04); border-radius:16px; padding:26px 28px; margin-bottom:48px;">
+    <div class="vvdoc">
+
+    <div style="border:1px solid rgba(41,121,255,.28); background:radial-gradient(120% 140% at 100% 0%, rgba(41,121,255,.14), transparent 55%), rgba(41,121,255,.04); border-radius:var(--r-card); padding:var(--card-pad); margin-bottom:48px;">
       <p style="margin:0; font-size:18px; line-height:1.6; color:#dbe6f7;"><strong style="color:#fff; font-weight:600;">In short:</strong> VoxelVision does not collect, transmit, or share any of your data. All data stays on your device.</p>
     </div>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:0 0 14px;">Overview</h2>
+    <h2 id="overview" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:0 0 14px;">Overview</h2>
     <p style="margin:0 0 30px;">VoxelVision is a spatial medical image viewing tool designed for personal exploration, education, and research purposes. It is not a medical device and is not intended for clinical diagnosis or treatment. The app supports CT, MR, PET, and NM modalities via DICOM, as well as NIfTI and NRRD volume files. All imaging data is processed and displayed locally in read-only mode for visualization.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Compliance Statement</h2>
+    <h2 id="compliance-statement" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Compliance Statement</h2>
     <p style="margin:0 0 16px;">The design of this software follows the relevant principles of the following standards and regulations:</p>
     <ul style="margin:0 0 30px; padding-left:22px;">
       <li style="margin-bottom:10px;"><a href="https://www.dicomstandard.org">DICOM</a> Medical Imaging Communication Standard</li>
@@ -87,45 +124,46 @@
       <li style="margin-bottom:10px;"><a href="https://www.iso.org/standard/27001">ISO/IEC 27001</a> Information Security Management System (design reference)</li>
     </ul>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Subject Data Protection</h2>
+    <h2 id="subject-data-protection" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Subject Data Protection</h2>
     <p style="margin:0 0 30px;">Imported imaging data (DICOM, NIfTI, or NRRD) is processed and stored entirely on the local device and is never uploaded to any server or cloud service. This software does not collect, transmit, or share any subject information, including name, subject ID, date of birth, or other protected health information (PHI).</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">User Data Protection</h2>
+    <h2 id="user-data-protection" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">User Data Protection</h2>
     <p style="margin:0 0 30px;">This software does not collect, store, or transmit any personal user information or device identifiers. The app does not use analytics, tracking, advertising frameworks, or any third-party data collection services.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Runtime Logs</h2>
+    <h2 id="runtime-logs" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Runtime Logs</h2>
     <p style="margin:0 0 30px;">VoxelVision includes built-in runtime logs for troubleshooting purposes. These logs do not contain any DICOM protected health information (PHI) or user privacy data. You can view and export log content on the in-app "Logs &amp; Feedback" page, or send it by email with "Email with Logs" — the log is attached automatically and sending is always user-initiated. Exported logs are saved to the VoxelVision folder in the Files app for you to review before sharing.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">In-App Purchases</h2>
+    <h2 id="in-app-purchases" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">In-App Purchases</h2>
     <p style="margin:0 0 30px;">VoxelVision offers optional in-app purchases processed entirely through Apple's App Store infrastructure. The developer does not have access to your payment information.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">World Sensing</h2>
+    <h2 id="world-sensing" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">World Sensing</h2>
     <p style="margin:0 0 30px;">VoxelVision uses Apple's spatial tracking technologies (ARKit on iPad and iPhone; visionOS world tracking on Apple Vision Pro) in immersive mode to position and orient 3D medical visualizations in your physical space. World sensing data is processed on-device by the operating system and is not accessed, stored, or transmitted by VoxelVision.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Third-Party Services</h2>
+    <h2 id="third-party-services" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Third-Party Services</h2>
     <p style="margin:0 0 30px;">VoxelVision does not integrate any third-party analytics, advertising, or data collection services. The app operates entirely offline with no network communication.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Sample Data Acknowledgement</h2>
+    <h2 id="sample-data-acknowledgement" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Sample Data Acknowledgement</h2>
     <p style="margin:0 0 16px;">Five sample datasets (CT, MR, PET, NIfTI, and NRRD) are included with VoxelVision and automatically installed when the app is downloaded from the App Store. You can keep them, or delete them at any time. To reload the sample images after deletion, delete the app and reinstall from the App Store. Completed in-app purchases can be restored on the Settings page after reinstallation.</p>
     <p style="margin:0 0 30px;">The sample datasets included in this app are sourced from publicly available, de-identified research datasets and contain no personally identifiable information. Full citations are available on the <a href="acknowledgements.html">Acknowledgements</a> page.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Data Collection</h2>
+    <h2 id="data-collection" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Data Collection</h2>
     <p style="margin:0 0 30px;">VoxelVision does not collect any data from its users. The app is suitable for users of all ages. No information is gathered, stored, or shared with any party.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Changes to This Policy</h2>
+    <h2 id="changes-to-this-policy" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Changes to This Policy</h2>
     <p style="margin:0 0 30px;">If this privacy policy is updated, the revised version will be posted on this page with an updated effective date. Continued use of VoxelVision after any changes constitutes acceptance of the updated policy.</p>
 
-    <h2 style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Contact</h2>
+    <h2 id="contact" style="font-family:'Sora',sans-serif; font-size:26px; font-weight:600; letter-spacing:-.01em; color:#eef1f6; margin:44px 0 14px;">Contact</h2>
     <p style="margin:0 0 30px;">If you have any questions about this privacy policy, please contact the developer at <a href="mailto:support@voxelvision.app">support@voxelvision.app</a>.</p>
 
     <p style="margin:40px 0 0; font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.04em; color:#7f8aa0;">Effective date: June 10, 2026</p>
-  </main>
+  </div>
+</main>
 
   <!-- FOOTER -->
-  <footer style="border-top:1px solid rgba(255,255,255,.07); padding:44px 40px; background:#04060b;">
+  <footer class="vvfoot" style="border-top:1px solid var(--vv-rule); padding-block:44px; background:#04060b;">
     <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
       <a href="index.html" style="display:flex; align-items:center; gap:12px; color:#eef1f6;">
-        <img src="assets/icon_128.png" alt="VoxelVision" style="width:26px; height:26px; border-radius:7px; display:block;">
+        <img width="128" height="128" src="assets/icon_128.png" alt="VoxelVision" style="width:26px; height:26px; border-radius:7px; display:block;">
         <span style="font-family:'Sora',sans-serif; font-weight:600; font-size:15px;">VoxelVision</span>
       </a>
       <div style="display:flex; gap:26px; font-size:14px; color:#8ba0bd; flex-wrap:wrap;">
@@ -140,6 +178,5 @@
   </footer>
 
 </div>
-</x-dc>
 </body>
 </html>

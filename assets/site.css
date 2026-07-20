@@ -1,0 +1,489 @@
+/* voxelvision.app — shared stylesheet for all pages.
+   Fonts are self-hosted: the site claims no third-party data collection, so it
+   must not hand every visitor's IP to a font CDN to render that claim. */
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-300-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-300-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/HankenGrotesk-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/JetBrainsMono-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/JetBrainsMono-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/JetBrainsMono-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/JetBrainsMono-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Sora-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Sora-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/Sora-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/Sora-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/Sora-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/Sora-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/Sora-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/Sora-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('fonts/Sora-800-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('fonts/Sora-800-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* { box-sizing: border-box; }
+  /* Offsets in-page anchor jumps by the sticky nav's height, so section headings
+     are not parked underneath it. */
+  html { scroll-padding-top:92px; }
+  /* Bar height is deterministic from its own padding and tallest child, and it
+     changes at the same breakpoints those do. The hero is pulled up by exactly
+     this so its image reaches the top of the page and the frost has something to
+     work on at rest, instead of the bar sitting on a band of page ground. */
+  /* One rhythm, two hairline weights, one gutter — declared once so a section
+     cannot drift out of step by being edited in isolation.
+       --vv-rule       structural, once per region: band edges, footer, page header
+       --vv-rule-soft  repeating separators and in-card rules; lighter precisely
+                       because they repeat, and repetition accumulates weight. */
+  /* One measure for every section, so the page keeps a single left edge; line
+     length is a property of the text, not of the container.
+     Two surface tiers: cards hold discrete objects, panels hold whole regions. */
+  /* Reading measure is a property of the text, never of the container: sub-page
+     prose sits in the same 1200 column as everything else and simply stops early,
+     the way the hero's own copy does. One left edge, comfortable line length. */
+  :root { --vv-read:660px; }
+  /* Gap above only; the footer's own margin supplies the one below, so the two
+     can never stack — same rule the home page's sections follow. */
+  .vvbody { max-width:var(--vv-max)!important; padding-block:var(--vv-sec) 0!important; }
+  /* Sub-page documents are long and sectioned; the column beside the text carries
+     the page's own index rather than sitting empty. The rail is one component —
+     its contents come from each page's real structure, not from a template. */
+  .vvbody { display:grid; grid-template-columns:var(--vv-read) minmax(0,1fr);
+            column-gap:64px; align-items:start; }
+  .vvdoc { grid-column:1; grid-row:1; min-width:0; }
+  .vvtoc { grid-column:2; grid-row:1; justify-self:end; position:sticky; top:calc(var(--vv-nav-h) + 28px);
+           max-height:calc(100vh - var(--vv-nav-h) - 72px); overflow-y:auto;
+           max-width:280px; }
+  .vvtoc > summary { display:none; }
+  /* A native scrollbar paints a square-cornered track inside the padding box, so
+     it juts out of a rounded panel. A thin overlay-style bar with a transparent
+     track has no corners to show. */
+  .vvtoc, .vvtoc-list { scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.22) transparent; }
+  .vvtoc::-webkit-scrollbar, .vvtoc-list::-webkit-scrollbar { width:6px; }
+  .vvtoc::-webkit-scrollbar-track, .vvtoc-list::-webkit-scrollbar-track { background:transparent; }
+  .vvtoc::-webkit-scrollbar-thumb, .vvtoc-list::-webkit-scrollbar-thumb {
+      background:rgba(255,255,255,.20); border-radius:999px; }
+  .vvtoc::-webkit-scrollbar-thumb:hover, .vvtoc-list::-webkit-scrollbar-thumb:hover {
+      background:rgba(255,255,255,.34); }
+  .vvtoc-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em;
+                 text-transform:uppercase; color:#7f8aa0; padding-bottom:12px;
+                 border-bottom:1px solid var(--vv-rule-soft); margin-bottom:6px; }
+  .vvtoc a { display:block; padding:8px 0; font-size:14px; line-height:1.4; color:#8ba0bd;
+             border-left:2px solid transparent; padding-left:12px; margin-left:-14px; }
+  .vvtoc a:hover { color:#dbe3ef; }
+  .vvtoc a.is-current { color:#dbe3ef; border-left-color:#2979FF; }
+  /* Below this the column cannot hold both, so the rail becomes a disclosure
+     above the text — still available, no longer competing for width. */
+  /* Below the two-column threshold the rail stops being a block in the flow and
+     becomes a floating control at the top-right of the reading column: it costs no
+     vertical space while idle, stays reachable the whole way down, and borrows the
+     bar menu's material and behaviour so the page has one control language. */
+  @media (max-width:1100px){
+    .vvbody { display:block; }
+    .vvtoc { position:sticky; top:calc(var(--vv-nav-h) + 14px); z-index:40;
+             justify-self:auto; height:0; max-width:none; max-height:none;
+             overflow:visible; margin:0; }
+    .vvtoc > summary { position:absolute; right:0; top:0; width:42px; height:42px;
+                       display:flex; align-items:center; justify-content:center;
+                       cursor:pointer; list-style:none; border-radius:999px;
+                       color:#dbe3ef;
+                       background:rgba(14,19,31,.62);
+                       backdrop-filter:blur(26px) saturate(170%);
+                       -webkit-backdrop-filter:blur(26px) saturate(170%);
+                       border:1px solid rgba(255,255,255,.14);
+                       box-shadow:0 14px 34px -14px rgba(0,0,0,.9); }
+    .vvtoc > summary::-webkit-details-marker { display:none; }
+    .vvtoc[open] > summary { color:#fff; border-color:rgba(255,255,255,.3); }
+    .vvtoc .vvtoc-txt, .vvtoc .vvtoc-label { display:none; }
+    .vvtoc > nav { position:absolute; right:0; top:54px;
+                   width:min(300px, calc(100vw - 2 * var(--vv-gut)));
+                   overflow:hidden;
+                   padding:10px 8px 10px 14px; border-radius:var(--r-card);
+                   background:rgba(14,19,31,.72);
+                   backdrop-filter:blur(30px) saturate(180%);
+                   -webkit-backdrop-filter:blur(30px) saturate(180%);
+                   border:1px solid rgba(255,255,255,.12);
+                   box-shadow:inset 0 1px 0 rgba(255,255,255,.09),
+                              0 26px 60px -22px rgba(0,0,0,.9); }
+    .vvtoc-list { max-height:min(60vh, 420px); overflow-y:auto; }
+    .vvtoc a { color:#dbe3ef; padding:10px 0 10px 12px; margin-left:0; }
+    @supports not (backdrop-filter: blur(1px)) {
+      .vvtoc > summary, .vvtoc > nav { background:rgba(12,16,26,.96); }
+    }
+  }
+  /* Sub-page headers reach the top of the page, so the bar's frost has the band
+     to work on rather than sitting on flat ground. */
+  .vvsubhead { margin-top:calc(-1 * var(--vv-nav-h)); }
+  .vvsubhead > div:last-child { padding-top:calc(78px + var(--vv-nav-h))!important; }
+  .vvsubhead-in { max-width:var(--vv-max)!important; }
+  :root { --vv-max:1200px; --r-card:20px; --r-panel:28px;
+          --card-pad:30px; --panel-pad:48px; }
+  :root { --vv-sec:100px; --vv-gut:40px;
+          --vv-rule:rgba(255,255,255,.10); --vv-rule-soft:rgba(255,255,255,.055); }
+  @media (max-width:720px){ :root { --vv-sec:68px; --vv-gut:22px; } }
+  /* Sections own the gap above them and nothing below, so adjacent paddings can
+     never stack into an unexplained hole. A banded section additionally takes an
+     outer margin, putting its rule in the middle of the gap rather than at its edge. */
+  .vvsec-res { margin-top:var(--vv-sec); }
+  .vvfoot { margin-top:var(--vv-sec); }
+  :root { --vv-nav-h:73px; }
+  @media (max-width:860px){ :root { --vv-nav-h:65px; } }
+  @media (max-width:560px){ :root { --vv-nav-h:68px; } }
+  .vvherowrap { margin-top:calc(-1 * var(--vv-nav-h)); }
+  .vvhero { padding-top:calc(120px + var(--vv-nav-h)) !important; }
+
+  html, body { margin:0; padding:0; background:#05070d; color-scheme:dark; }
+  a { text-decoration:none; }
+  :focus-visible { outline:2px solid #4DA3FF; outline-offset:3px; border-radius:4px; }
+  .vvskip { position:absolute; left:-9999px; top:0; z-index:100; }
+  .vvskip:focus { left:16px; top:16px; padding:11px 18px; background:#2979FF; color:#fff;
+                  border-radius:10px; font-size:14px; font-weight:600; }
+  /* Prose links carry an underline: colour alone must not be the only cue. Nav,
+     buttons and figure captions are excluded — their role is clear from position. */
+  .vvprose a { text-decoration:underline; text-underline-offset:.18em; text-decoration-thickness:.06em; }
+  @keyframes vvfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+  @keyframes vvpulse { 0%,100% { opacity:.4; transform:scale(1); } 50% { opacity:1; transform:scale(1.25); } }
+  @keyframes vvdrift { 0% { background-position:0 0; } 100% { background-position:340px 340px; } }
+  @keyframes vvrise { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+
+
+  /* Download is the one control that never folds into the menu, so at the
+     narrowest widths it drops its label and keeps only the glyph. */
+  .vvcta { display:inline-flex; align-items:center; gap:8px; }
+  .vvcta-ico { display:none; flex:none; }
+  @media (max-width:560px){
+    .vvcta { padding:0!important; width:40px; height:40px; justify-content:center; }
+    .vvcta-ico { display:block; }
+    .vvcta-txt { display:none; }
+  }
+
+  /* The bar stays on one line at every width. What folds, folds in priority order:
+     the in-page anchors first, then the cross-page links. The wordmark and Download
+     never fold — they are the two things the bar exists for. */
+  /* The bar reads as a visionOS window pane rather than a toolbar with a rule:
+     no border, and the frost itself decays to nothing instead of being cut off.
+     backdrop-filter cannot be gradiented directly, so two masked layers carry it —
+     masking a layer masks its backdrop-filter output along with it. */
+  /* Full-bleed bars (nav, footer) must still land on the content column's left
+     edge. The inline padding is the gutter when the viewport is narrower than the
+     column, and grows to meet the centred column when it is wider — so the page
+     has one left edge from the wordmark to the copyright line. */
+  .vvnav, .vvfoot { padding-inline:max(var(--vv-gut),
+                                       calc((100% - var(--vv-max)) / 2 + var(--vv-gut))); }
+  .vvnav { position:sticky; top:0; z-index:50; isolation:isolate;
+           display:flex; align-items:center; justify-content:space-between;
+           flex-wrap:nowrap; gap:14px; padding-block:18px; }
+  /* The frost is confined to the bar's own box — it never bleeds over the page.
+     A single masked layer would step visibly, so four stacked layers step the blur
+     radius down 24 -> 12 -> 6 -> 2 across overlapping bands; the overlaps are what
+     make the ramp read as continuous rather than as four bands. */
+  .vvnav-frost { position:absolute; inset:0; z-index:-1; pointer-events:none;
+                 background:linear-gradient(to bottom,
+                             rgba(5,7,13,.90) 0%, rgba(5,7,13,.78) 34%,
+                             rgba(5,7,13,.52) 66%, rgba(5,7,13,.14) 88%,
+                             rgba(5,7,13,0) 100%); }
+  .vvnav-frost > i { position:absolute; inset:0; display:block; }
+  .vvnav-frost > i:nth-child(1) { backdrop-filter:blur(24px) saturate(150%);
+    -webkit-backdrop-filter:blur(24px) saturate(150%);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 26%,transparent 46%);
+            mask-image:linear-gradient(to bottom,#000 0%,#000 26%,transparent 46%); }
+  .vvnav-frost > i:nth-child(2) { backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 10%,#000 30%,#000 50%,transparent 68%);
+            mask-image:linear-gradient(to bottom,transparent 10%,#000 30%,#000 50%,transparent 68%); }
+  .vvnav-frost > i:nth-child(3) { backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 32%,#000 52%,#000 72%,transparent 88%);
+            mask-image:linear-gradient(to bottom,transparent 32%,#000 52%,#000 72%,transparent 88%); }
+  .vvnav-frost > i:nth-child(4) { backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 54%,#000 74%,#000 90%,transparent 100%);
+            mask-image:linear-gradient(to bottom,transparent 54%,#000 74%,#000 90%,transparent 100%); }
+  /* Without backdrop-filter the text still needs a legible ground. */
+  @supports not (backdrop-filter: blur(1px)) {
+    .vvnav-frost { background:linear-gradient(to bottom, rgba(5,7,13,.97) 0%,
+                                                        rgba(5,7,13,.90) 55%,
+                                                        rgba(5,7,13,0) 100%); }
+  }
+  .vvlinks { flex-wrap:nowrap!important; white-space:nowrap; }
+  /* #9fb0c8 was legible on a flat bar, but the frost thins toward the bar's
+     lower edge; across the glyph band this holds >=5.5:1 even when the brightest
+     still on the page passes underneath. */
+  .vvlinks a { color:#dbe3ef; }
+  .vvlinks a:hover { color:#ffffff; }
+  .vvmenu { position:relative; display:none; }
+  /* Floating surfaces borrow visionOS window material: an even frost with a
+     light hairline and a specular top edge. Even, not graduated — the graduated
+     variant exists only to kill the sticky bar's bottom edge.
+     The tint stops at .50: the brightest backdrop a panel can land on is the room
+     wall in the Vision Pro still, rgb(204,207,208), where .50 holds white text at
+     4.9:1 and .45 drops it to 4.3:1, under AA. */
+  .vvglass {
+    background:rgba(14,19,31,.50);
+    backdrop-filter:blur(40px) saturate(180%);
+    -webkit-backdrop-filter:blur(40px) saturate(180%);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.09), 0 26px 60px -22px rgba(0,0,0,.9);
+  }
+  @supports not (backdrop-filter: blur(1px)) {
+    .vvglass { background:rgba(12,16,26,.95); }
+  }
+
+  /* The hero badge floats directly on the photograph; it keeps its accent
+     hairline and takes a lighter frost so the image still reads through. */
+  .vvchip {
+    background:rgba(12,18,32,.55);
+    backdrop-filter:blur(16px) saturate(160%);
+    -webkit-backdrop-filter:blur(16px) saturate(160%);
+  }
+  @supports not (backdrop-filter: blur(1px)) {
+    .vvchip { background:rgba(10,14,26,.8); }
+  }
+
+  .vvmenu > summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:7px;
+                      color:#dbe3ef; padding:7px 14px; border:1px solid rgba(255,255,255,.14);
+                      border-radius:999px; user-select:none;
+                      background:rgba(255,255,255,.05);
+                      backdrop-filter:blur(14px) saturate(150%);
+                      -webkit-backdrop-filter:blur(14px) saturate(150%); }
+  .vvmenu > summary:hover { background:rgba(255,255,255,.09); color:#cfdaea; }
+  .vvmenu > summary::-webkit-details-marker { display:none; }
+  .vvmenu > summary::after { content:""; width:6px; height:6px; margin-top:-3px;
+                             border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+                             transform:rotate(45deg); transition:transform .18s ease; }
+  .vvmenu[open] > summary { color:#eef1f6; border-color:rgba(255,255,255,.3); }
+  .vvmenu[open] > summary::after { transform:rotate(225deg); margin-top:3px; }
+  .vvmenu-panel { position:absolute; right:0; top:calc(100% + 26px); min-width:194px; z-index:60;
+                  display:flex; flex-direction:column; padding:8px; border-radius:14px; }
+  .vvmenu-panel a { color:#ffffff; padding:10px 12px; border-radius:9px; font-size:15px; }
+  .vvmenu-panel a:hover { background:rgba(255,255,255,.10); color:#fff; }
+  .vvmenu-panel .vvm-b { display:none; }
+
+  /* The home bar carries five links and folds in two stages; the sub-page bars
+     carry three and fold in one. */
+  @media (max-width:1010px){
+    .vvnav-home .vvnav-a { display:none; }
+    .vvnav-home .vvmenu { display:block; }
+  }
+  @media (max-width:720px){
+    .vvnav-home .vvnav-b { display:none; }
+    .vvnav-home .vvmenu-panel .vvm-b { display:block; }
+  }
+  @media (max-width:640px){
+    .vvnav-sub .vvnav-b { display:none; }
+    .vvnav-sub .vvmenu { display:block; }
+    .vvnav-sub .vvmenu-panel .vvm-b { display:block; }
+  }
+
+  @media (max-width:860px){
+    .vvnav{padding-block:14px;}
+    .vvlinks{gap:12px 16px!important;font-size:13px!important;}
+  }
+  /* Three platform stills abreast need real width — below this the iPhone column
+     collapses to a size where its on-screen interface is unreadable. */
+  @media (max-width:980px){
+    .vvplat{grid-template-columns:1fr!important;}
+  }
+  .vvmods>div{align-items:center; text-align:center;}
+
+  /* C — the interaction copy is three text blocks, not three objects. A rule and
+     space carry the grouping; card chrome here only competed with the figures
+     directly above it and flattened the cards that do carry objects. */
+  .vvcore-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:44px 40px; }
+  .vvcard { padding:26px 0 0; border-top:1px solid var(--vv-rule); }
+  @media (max-width:720px){ .vvcore-grid { gap:34px 22px; } }
+
+  /* The page states elsewhere that non-essential motion is suppressed under
+     Reduce Motion; honour that here too. */
+  @media (prefers-reduced-motion:reduce){
+    *, *::before, *::after {
+      animation-duration:.001ms!important; animation-iteration-count:1!important;
+      transition-duration:.001ms!important; scroll-behavior:auto!important;
+    }
+  }
+  @media (max-width:720px){
+    .vvhero{padding:calc(72px + var(--vv-nav-h)) 22px 48px!important;}
+    .vvlead{font-size:19px!important;}
+    .vvwhy-p{font-size:25px!important;}
+    .vvstrip-card{padding:36px 22px!important;}
+    .vvpriv-card{padding:40px 22px!important;}
+    .vvgrad{flex-direction:column!important; align-items:flex-start!important; gap:4px!important;}
+    .vvgrad>span:nth-child(2){display:none!important;}
+    .vvpriv-card{padding:40px 24px!important;}
+    .vvpriv-h2{font-size:32px!important;}
+    .vvcta-card{padding:40px 26px!important;}
+    .vvcta-h3{font-size:28px!important;}
+  }
+
+  /* Sub-page body copy. */
+  .vvbody a:not(.vvtoc a) { color:#4DA3FF; word-break:break-word;
+              text-decoration:underline; text-underline-offset:.18em; text-decoration-thickness:.06em; }
+
+  /* Support page FAQ disclosures. */
+  details.vvfaq summary { list-style:none; cursor:pointer; }
+  details.vvfaq summary::-webkit-details-marker { display:none; }
+  details.vvfaq summary .vvplus { transition:transform .25s ease; }
+  details.vvfaq[open] summary .vvplus { transform:rotate(45deg); }
+
+  /* Fallback for browsers that force-darken page colours (e.g. Edge mobile dark
+     mode): gradient-clipped text becomes plain light text rather than inheriting
+     a darkened gradient. */
+  html.no-gtx .gtx { background-image:none!important; -webkit-text-fill-color:currentColor!important;
+                     color:var(--gtx-fb,#ffffff)!important; }

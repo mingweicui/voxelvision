@@ -5,7 +5,6 @@
     dir:      'directories',
     li:       'linkedin',
     x:        'x-twitter',
-    preprint: 'preprint'
   };
   var ct = MAP[new URLSearchParams(location.search).get('ref')];
   if (!ct) return;
