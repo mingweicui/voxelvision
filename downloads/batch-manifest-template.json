@@ -1,0 +1,21 @@
+{
+  "schema": "vv-research-manifest",
+  "schemaVersion": 2,
+  "runID": "REPLACE_WITH_RUN_ID",
+  "allRegistrations": false,
+  "configs": [
+    {
+      "configID": "pair-1",
+      "fixedUniqueKey": "REPLACE_WITH_PAIR_1_FIXED_UNIQUE_KEY",
+      "movingUniqueKey": "REPLACE_WITH_PAIR_1_MOVING_UNIQUE_KEY"
+    },
+    {
+      "configID": "pair-2",
+      "fixedUniqueKey": "REPLACE_WITH_PAIR_2_FIXED_UNIQUE_KEY",
+      "movingUniqueKey": "REPLACE_WITH_PAIR_2_MOVING_UNIQUE_KEY"
+    }
+  ],
+  "benchmark": {
+    "repeatCount": 3
+  }
+}
