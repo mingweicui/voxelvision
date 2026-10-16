@@ -1,0 +1,8 @@
+#Insight Transform File V1.0
+# Replace every REPLACE_WITH token with a finite numeric value before saving as .tfm.
+# Absolute LPS coordinates, millimeters; fixed-to-moving resampling direction.
+# Matrix entries are row-major. Translation and center have three components each.
+#Transform 0
+Transform: AffineTransform_double_3_3
+Parameters: REPLACE_WITH_M11 REPLACE_WITH_M12 REPLACE_WITH_M13 REPLACE_WITH_M21 REPLACE_WITH_M22 REPLACE_WITH_M23 REPLACE_WITH_M31 REPLACE_WITH_M32 REPLACE_WITH_M33 REPLACE_WITH_TX REPLACE_WITH_TY REPLACE_WITH_TZ
+FixedParameters: REPLACE_WITH_CX REPLACE_WITH_CY REPLACE_WITH_CZ
